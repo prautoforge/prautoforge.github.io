@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Questionnaire Autopilot · PrautoForge</title>
+<meta name="description" content="Answer vendor security questionnaires from answers you have already approved. Runs offline on your own computer. One-time purchase.">
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <a class="brand" href="./"><img src="assets/icon.png" alt="" width="32" height="32">PrautoForge</a>
+  <nav aria-label="Sections">
+    <a href="#how">How it works</a>
+    <a href="#limits">What it won't do</a>
+    <a href="#faq">FAQ</a>
+    <a href="#buy">Buy</a>
+  </nav>
+</header>
+
+<main>
+<div class="hero">
+  <div class="hero-copy">
+    <span class="label">Questionnaire Autopilot 1.0</span>
+    <h1>Answer security questionnaires from answers you've already approved.</h1>
+    <p class="lede">A private tool for small B2B software teams. It reads the buyer's spreadsheet, reuses your approved answers word for word, and lists what's missing instead of making things up. Everything runs on your own computer.</p>
+    <div class="cta">
+      <a class="btn" href="#buy" aria-disabled="true">Available soon</a>
+      <span class="price">$99 one-time · no subscription</span>
+    </div>
+  </div>
+
+  <div class="sheet" role="img" aria-label="Example of four questionnaire rows and the status the tool gives each one">
+    <div class="sheet-head label"><span>vendor-security-review.xlsx</span><span>Sample · fictional company</span></div>
+    <div class="rows">
+      <div class="row">
+        <span class="ref mono">Q1</span>
+        <div><span class="q">Is customer data encrypted at rest?</span>
+          <span class="a">Copied from your library · <span class="ev mono">ENC-001</span></span></div>
+        <span class="pill matched">MATCHED</span>
+      </div>
+      <div class="row">
+        <span class="ref mono">Q6</span>
+        <div><span class="q">How often is privileged access to production reviewed?</span>
+          <span class="a">Drafted locally from approved evidence · <span class="ev mono">IAM-003</span></span></div>
+        <span class="pill drafted">DRAFTED</span>
+      </div>
+      <div class="row">
+        <span class="ref mono">Q21</span>
+        <div><span class="q">Is your service FedRAMP authorized?</span>
+          <span class="a">No approved evidence, so no answer. Added to your to-do list.</span></div>
+        <span class="pill missing">NEEDS EVIDENCE</span>
+      </div>
+      <div class="row">
+        <span class="ref mono">Q24</span>
+        <div><span class="q">Will you indemnify us for losses from a data breach?</span>
+          <span class="a">Contract question. Sent to human review, never drafted.</span></div>
+        <span class="pill legal">LEGAL REVIEW</span>
+      </div>
+    </div>
+    <div class="sheet-foot">Rows from the included sample questionnaire (fictional company "Examplify Inc.").</div>
+  </div>
+</div>
+
+<section id="what">
+  <div class="section-head">
+    <span class="label">What you get</span>
+    <h2>A reviewed first draft in about an hour, not a lost day.</h2>
+  </div>
+  <div class="cols">
+    <div><h3>Reuse, don't retype</h3><p>Questions that match an approved answer get that answer copied exactly, with its evidence ID and document reference.</p></div>
+    <div><h3>A clear review queue</h3><p>Legal questions come first, then gaps, then drafts. Your reviewer sees what needs judgment and skips what doesn't.</p></div>
+    <div><h3>A to-do list for gaps</h3><p>Anything your library can't answer goes into a missing-evidence list for your security owner. Approve it once and it's reused next time.</p></div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="split">
+    <div class="section-head">
+      <span class="label">How it works</span>
+      <h2>Three steps, all on your machine.</h2>
+      <p class="lede">Standard Python 3.10+ on Windows, macOS or Linux. No account, no server, no telemetry.</p>
+    </div>
+    <ol class="steps">
+      <li><div><h3>Build your approved-answer library</h3><p>One row per answer your team has signed off on: the text, the evidence reference, who approved it and when it expires. Most teams start from their last two questionnaires.</p></div></li>
+      <li><div><h3>Run the incoming questionnaire</h3><p>CSV or XLSX, any column layout with a question column.</p>
+        <pre class="mono">python -m sqautopilot run incoming.xlsx --library answers.csv</pre></div></li>
+      <li><div><h3>Review and send</h3><p>You get a draft spreadsheet, a prioritised review queue, a missing-evidence list and an offline HTML report. Nothing is ever submitted for you.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section>
+  <figure>
+    <img src="assets/report-synthetic.png" alt="Review report showing counts by status and a table of questions with answers, evidence IDs and confidence" width="1400" height="1000" loading="lazy">
+    <figcaption>The offline review report, run on the included sample data (fictional company). Optional local AI drafts are marked DRAFTED and still go to review.</figcaption>
+  </figure>
+</section>
+
+<section id="limits">
+  <div class="split">
+    <div class="section-head">
+      <span class="label">Built-in limits</span>
+      <h2>What it will never do.</h2>
+      <p class="lede">A questionnaire answer is a statement about your company. The tool is designed to keep unsupported statements out of it.</p>
+    </div>
+    <ul class="list never">
+      <li><span><strong>Invent certifications or audits.</strong> A draft that mentions SOC 2, ISO 27001, FedRAMP, encryption strength, numbers or incident history is discarded unless your cited approved answer says the same thing.</span></li>
+      <li><span><strong>Cite evidence that doesn't exist.</strong> Every draft must point to real IDs in your library.</span></li>
+      <li><span><strong>Send your data anywhere.</strong> The optional AI model must run on the same computer. Other addresses are refused in code.</span></li>
+      <li><span><strong>Answer legal or contract questions.</strong> Indemnity, liability and interpretation of law go straight to a person.</span></li>
+      <li><span><strong>Submit anything.</strong> You review, you send.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="details">
+  <div class="split">
+    <div class="section-head">
+      <span class="label">Requirements</span>
+      <h2>What you need.</h2>
+    </div>
+    <ul class="list">
+      <li><span><strong>Python 3.10 or newer.</strong> The core uses only the standard library.</span></li>
+      <li><span><strong>Optional:</strong> <code>openpyxl</code> for XLSX files. Without it, use CSV.</span></li>
+      <li><span><strong>Optional:</strong> a local <a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a> server and a model you choose, for drafting. Without one, matching and review still work. No model is included.</span></li>
+      <li><span><strong>Included:</strong> full source, quickstart, security and privacy notes, a 17-check self-test, a test suite and a sample company to try it on.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="buy">
+  <div class="buy">
+    <div class="section-head">
+      <span class="label">Pricing</span>
+      <h2>One price, one organization, every computer you own.</h2>
+      <p class="lede">Buy once and use it on any number of your organization's machines. Updates to version 1.x are included.</p>
+    </div>
+    <div class="buy-card">
+      <div class="amount">$99 <small>USD, one-time</small></div>
+      <a class="btn" href="#buy" aria-disabled="true">Available soon</a>
+      <p class="fine">Checkout, tax and delivery are handled by Lemon Squeezy, our reseller and merchant of record. You get a download link by email right after purchase. See the <a href="terms.html#refunds">refund policy</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-head"><span class="label">Questions</span><h2>FAQ</h2></div>
+  <dl>
+    <div><dt>Does it include SIG or CAIQ questionnaire content?</dt><dd>No. Those are published by their owners under their own terms. Load the questionnaire your customer sent you; the tool works with any spreadsheet that has a question column.</dd></div>
+    <div><dt>Do I need an AI model?</dt><dd>No. Matching, gap lists, legal routing and the review queue work without one. A local model only adds DRAFTED answers for partial matches, and those are checked against your evidence before you see them.</dd></div>
+    <div><dt>Does anything get uploaded?</dt><dd>No. The tool collects no usage data and never contacts us. Your purchase is handled by Lemon Squeezy under its own privacy policy.</dd></div>
+    <div><dt>Is this legal or compliance advice?</dt><dd>No. It's a drafting aid. You remain responsible for every answer you send.</dd></div>
+  </dl>
+</section>
+</main>
+
+<footer>
+  <span>© 2026 PrautoForge · Support: email address coming soon</span>
+  <nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; refunds</a></nav>
+</footer>
+</div>
+</body>
+</html>
