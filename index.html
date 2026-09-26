@@ -1,170 +1,255 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Questionnaire Autopilot · PrautoForge</title>
-<meta name="description" content="Answer vendor security questionnaires from answers you have already approved. Runs offline on your own computer. One-time purchase.">
-<link rel="icon" href="assets/icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Questionnaire Autopilot — Security reviews, grounded in your evidence</title>
+  <meta name="description" content="Turn approved security answers into a review-ready questionnaire draft. Runs locally, cites your evidence, and leaves unsupported claims blank.">
+  <meta name="theme-color" content="#10231f">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Questionnaire Autopilot by PrautoForge">
+  <meta property="og:description" content="Stop re-answering the same security questions. Draft from approved answers, locally.">
+  <meta property="og:url" content="https://prautoforge.github.io/">
+  <link rel="canonical" href="https://prautoforge.github.io/">
+  <link rel="icon" href="assets/icon.png">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="wrap">
-
-<header class="top">
-  <a class="brand" href="./"><img src="assets/icon.png" alt="" width="32" height="32">PrautoForge</a>
-  <nav aria-label="Sections">
-    <a href="#how">How it works</a>
-    <a href="#limits">What it won't do</a>
-    <a href="#faq">FAQ</a>
-    <a href="#buy">Buy</a>
-  </nav>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="shell nav-shell">
+    <a class="brand" href="./" aria-label="PrautoForge home">
+      <img src="assets/icon.png" alt="" width="36" height="36">
+      <span>PrautoForge</span>
+    </a>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <a href="#product">Product</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#guardrails">Guardrails</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </div>
 </header>
 
-<main>
-<div class="hero">
-  <div class="hero-copy">
-    <span class="label">Questionnaire Autopilot 1.0</span>
-    <h1>Answer security questionnaires from answers you've already approved.</h1>
-    <p class="lede">A private tool for small B2B software teams. It reads the buyer's spreadsheet, reuses your approved answers word for word, and lists what's missing instead of making things up. Everything runs on your own computer.</p>
-    <div class="cta">
-      <a class="btn" href="#buy" aria-disabled="true">Available soon</a>
-      <span class="price">$99 one-time · no subscription</span>
-    </div>
-  </div>
-
-  <div class="sheet" role="img" aria-label="Example of four questionnaire rows and the status the tool gives each one">
-    <div class="sheet-head label"><span>vendor-security-review.xlsx</span><span>Sample · fictional company</span></div>
-    <div class="rows">
-      <div class="row">
-        <span class="ref mono">Q1</span>
-        <div><span class="q">Is customer data encrypted at rest?</span>
-          <span class="a">Copied from your library · <span class="ev mono">ENC-001</span></span></div>
-        <span class="pill matched">MATCHED</span>
+<main id="main">
+  <section class="hero shell" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span>Questionnaire Autopilot 1.0</p>
+      <h1 id="hero-title">Stop re-answering the same security questions.</h1>
+      <p class="hero-lede">Turn the answers your team has already approved into a review-ready draft. Questionnaire Autopilot runs on your computer, cites the evidence behind every answer, and leaves the guesswork out.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="mailto:contactprautof@gmail.com?subject=Questionnaire%20Autopilot%20availability" data-action="availability">Ask about availability <span aria-hidden="true">↗</span></a>
+        <a class="button button-secondary" href="#sample">See a sample report <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="row">
-        <span class="ref mono">Q6</span>
-        <div><span class="q">How often is privileged access to production reviewed?</span>
-          <span class="a">Drafted locally from approved evidence · <span class="ev mono">IAM-003</span></span></div>
-        <span class="pill drafted">DRAFTED</span>
+      <ul class="proof-strip" aria-label="Product highlights">
+        <li>Windows, macOS &amp; Linux</li>
+        <li>No account or telemetry</li>
+        <li>$99 one-time</li>
+      </ul>
+    </div>
+
+    <div class="product-window" aria-label="Example questionnaire processing result">
+      <div class="window-bar">
+        <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="window-title">vendor-review.xlsx</span>
+        <span class="window-meta">24 questions</span>
       </div>
-      <div class="row">
-        <span class="ref mono">Q21</span>
-        <div><span class="q">Is your service FedRAMP authorized?</span>
-          <span class="a">No approved evidence, so no answer. Added to your to-do list.</span></div>
-        <span class="pill missing">NEEDS EVIDENCE</span>
+      <div class="summary-grid" aria-label="Run summary">
+        <div><strong>14</strong><span>matched</span></div>
+        <div><strong>5</strong><span>suggested</span></div>
+        <div><strong>3</strong><span>evidence gaps</span></div>
+        <div><strong>2</strong><span>human review</span></div>
       </div>
-      <div class="row">
-        <span class="ref mono">Q24</span>
-        <div><span class="q">Will you indemnify us for losses from a data breach?</span>
-          <span class="a">Contract question. Sent to human review, never drafted.</span></div>
-        <span class="pill legal">LEGAL REVIEW</span>
+      <div class="result-list">
+        <article class="result-row">
+          <span class="question-number">01</span>
+          <div><h2>Is customer data encrypted at rest?</h2><p>Approved answer copied · Evidence ENC-001</p></div>
+          <span class="tag tag-match">Matched</span>
+        </article>
+        <article class="result-row">
+          <span class="question-number">06</span>
+          <div><h2>How often is production access reviewed?</h2><p>Related evidence found · Review required</p></div>
+          <span class="tag tag-suggest">Suggested</span>
+        </article>
+        <article class="result-row">
+          <span class="question-number">21</span>
+          <div><h2>Is your service FedRAMP authorized?</h2><p>No approved evidence · No answer generated</p></div>
+          <span class="tag tag-gap">Needs evidence</span>
+        </article>
+        <article class="result-row">
+          <span class="question-number">24</span>
+          <div><h2>Will you indemnify us after a breach?</h2><p>Contract language · Routed to a person</p></div>
+          <span class="tag tag-review">Legal review</span>
+        </article>
+      </div>
+      <p class="window-footnote">Illustrative output using the included fictional sample company.</p>
+    </div>
+  </section>
+
+  <section class="trust-band" aria-label="Product principles">
+    <div class="shell trust-grid">
+      <p><strong>Local by design.</strong> Questionnaire data stays on the machine running the tool.</p>
+      <p><strong>Evidence first.</strong> Unsupported certifications, numbers, and security claims are blocked.</p>
+      <p><strong>Human at the finish line.</strong> The tool prepares the work. Your team approves what gets sent.</p>
+    </div>
+  </section>
+
+  <section id="product" class="section shell">
+    <div class="section-intro">
+      <p class="eyebrow">A cleaner first pass</p>
+      <h2>Spend review time on the answers that need judgment.</h2>
+      <p>Most questionnaires mix routine repeats with genuine gaps and legal questions. Questionnaire Autopilot separates them, so your reviewer can focus instead of hunting through a spreadsheet.</p>
+    </div>
+    <div class="deliverables-grid">
+      <article class="feature-card feature-card-wide">
+        <span class="card-index">01</span>
+        <h3>Response draft</h3>
+        <p>Your original CSV or XLSX structure, filled where approved evidence supports an answer. Each row carries a status, source IDs, references, and confidence.</p>
+        <div class="mini-table" aria-hidden="true">
+          <span>Question</span><span>Answer</span><span>Evidence</span><span>Status</span>
+          <b>Data retention?</b><i>Approved text…</i><code>RET-002</code><em>Matched</em>
+        </div>
+      </article>
+      <article class="feature-card">
+        <span class="card-index">02</span>
+        <h3>Prioritized review queue</h3>
+        <p>Legal items first, then blocked inputs, evidence gaps, and drafts. Routine matches stay out of the way.</p>
+      </article>
+      <article class="feature-card">
+        <span class="card-index">03</span>
+        <h3>Evidence gap list</h3>
+        <p>A practical to-do list of questions your current library cannot support—without filler answers.</p>
+      </article>
+      <article class="feature-card">
+        <span class="card-index">04</span>
+        <h3>Offline review report</h3>
+        <p>A single HTML report that opens in a browser and makes handoff to a reviewer straightforward.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="workflow" class="section section-tint">
+    <div class="shell workflow-layout">
+      <div class="section-intro sticky-intro">
+        <p class="eyebrow">How it works</p>
+        <h2>From old answers to a defensible draft.</h2>
+        <p>No new portal to maintain. No customer data to upload. Start with the files your team already has.</p>
+        <a class="text-link" href="#requirements">Check the requirements <span aria-hidden="true">→</span></a>
+      </div>
+      <ol class="workflow-list">
+        <li>
+          <span>01</span>
+          <div><h3>Build the approved-answer library</h3><p>Add the answer text, its evidence reference, who approved it, and when it expires. Recent completed questionnaires are usually the best starting point.</p></div>
+        </li>
+        <li>
+          <span>02</span>
+          <div><h3>Run the incoming spreadsheet</h3><p>Point the tool at a CSV or XLSX file. It detects the question column, matches approved material, and classifies everything else.</p><code class="command">python -m sqautopilot run incoming.xlsx --library answers.csv</code></div>
+        </li>
+        <li>
+          <span>03</span>
+          <div><h3>Review, revise, and send</h3><p>Open the report, work through the queue, and make the final call. Questionnaire Autopilot never submits a response for you.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="sample" class="section shell sample-section">
+    <div class="sample-heading">
+      <div class="section-intro">
+        <p class="eyebrow">Real product output</p>
+        <h2>One report. Every decision visible.</h2>
+      </div>
+      <p>The included offline report shows what matched, what needs evidence, and what belongs with legal. This screenshot uses synthetic data for the fictional company “Examplify Inc.”</p>
+    </div>
+    <figure class="report-frame">
+      <div class="report-toolbar"><span>review_report.html</span><span>Local file · no upload</span></div>
+      <img src="assets/report-synthetic.png" alt="Offline review report with status totals and a question-by-question evidence table" width="1400" height="1000" loading="lazy">
+      <figcaption>Sample report included with Questionnaire Autopilot. All company data shown is fictional.</figcaption>
+    </figure>
+  </section>
+
+  <section id="guardrails" class="section guardrail-section">
+    <div class="shell guardrail-layout">
+      <div class="section-intro inverse">
+        <p class="eyebrow">Deliberate guardrails</p>
+        <h2>A useful answer is one you can stand behind.</h2>
+        <p>Security questionnaires are representations about your company. The product is intentionally conservative when the evidence runs out.</p>
+      </div>
+      <ul class="guardrail-list">
+        <li><span>01</span><div><strong>No invented claims</strong><p>Certifications, audit status, encryption details, incident history, and unsupported numbers are blocked.</p></div></li>
+        <li><span>02</span><div><strong>No phantom citations</strong><p>Every evidence ID must exist in the approved library before it can appear in a draft.</p></div></li>
+        <li><span>03</span><div><strong>No remote model endpoint</strong><p>Optional AI drafting only accepts a model running on the same computer. Evidence-only mode needs no model.</p></div></li>
+        <li><span>04</span><div><strong>No automated legal answers</strong><p>Liability, indemnity, and interpretation of law go directly to human review.</p></div></li>
+        <li><span>05</span><div><strong>No automatic submission</strong><p>Your organization reviews, approves, and sends every response.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="requirements" class="section shell requirements-section">
+    <div class="section-intro">
+      <p class="eyebrow">Before you start</p>
+      <h2>Small footprint. Clear requirements.</h2>
+    </div>
+    <div class="requirements-grid">
+      <article><span class="requirement-label">Runs on</span><strong>Windows, macOS, or Linux</strong><p>Python 3.10 or newer. Core features use the standard library.</p></article>
+      <article><span class="requirement-label">Spreadsheet support</span><strong>CSV included · XLSX optional</strong><p>Install <code>openpyxl</code> when you need Excel input and output.</p></article>
+      <article><span class="requirement-label">Local drafting</span><strong>Optional llama.cpp model</strong><p>Matching, gaps, routing, and review work without any AI model.</p></article>
+      <article><span class="requirement-label">In the download</span><strong>Source, docs, tests, and demo</strong><p>Includes a 17-check self-test and synthetic sample files.</p></article>
+    </div>
+  </section>
+
+  <section id="buy" class="section shell purchase-section">
+    <div class="purchase-panel">
+      <div>
+        <p class="eyebrow">Simple licensing</p>
+        <h2>One organization.<br>Every machine you own.</h2>
+        <p>Use Questionnaire Autopilot across your organization. Version 1.x updates are included, with no recurring fee.</p>
+      </div>
+      <div class="price-card">
+        <p class="price"><span>$</span>99</p>
+        <p class="price-meta">USD · one-time purchase</p>
+        <ul>
+          <li>Unlimited internal machines</li>
+          <li>Windows, macOS, and Linux</li>
+          <li>Version 1.x updates</li>
+          <li>14-day technical refund policy</li>
+        </ul>
+        <a class="button button-primary button-block" href="mailto:contactprautof@gmail.com?subject=Questionnaire%20Autopilot%20availability" data-action="availability">Ask about availability <span aria-hidden="true">↗</span></a>
+        <p class="purchase-note">Checkout is not open yet. Email <a class="contact" href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a> and we’ll let you know when purchasing is available.</p>
       </div>
     </div>
-    <div class="sheet-foot">Rows from the included sample questionnaire (fictional company "Examplify Inc.").</div>
-  </div>
-</div>
+  </section>
 
-<section id="what">
-  <div class="section-head">
-    <span class="label">What you get</span>
-    <h2>A reviewed first draft in about an hour, not a lost day.</h2>
-  </div>
-  <div class="cols">
-    <div><h3>Reuse, don't retype</h3><p>Questions that match an approved answer get that answer copied exactly, with its evidence ID and document reference.</p></div>
-    <div><h3>A clear review queue</h3><p>Legal questions come first, then gaps, then drafts. Your reviewer sees what needs judgment and skips what doesn't.</p></div>
-    <div><h3>A to-do list for gaps</h3><p>Anything your library can't answer goes into a missing-evidence list for your security owner. Approve it once and it's reused next time.</p></div>
-  </div>
-</section>
-
-<section id="how">
-  <div class="split">
-    <div class="section-head">
-      <span class="label">How it works</span>
-      <h2>Three steps, all on your machine.</h2>
-      <p class="lede">Standard Python 3.10+ on Windows, macOS or Linux. No account, no server, no telemetry.</p>
+  <section id="faq" class="section shell faq-section">
+    <div class="section-intro">
+      <p class="eyebrow">Straight answers</p>
+      <h2>Questions before you run it.</h2>
     </div>
-    <ol class="steps">
-      <li><div><h3>Build your approved-answer library</h3><p>One row per answer your team has signed off on: the text, the evidence reference, who approved it and when it expires. Most teams start from their last two questionnaires.</p></div></li>
-      <li><div><h3>Run the incoming questionnaire</h3><p>CSV or XLSX, any column layout with a question column.</p>
-        <pre class="mono">python -m sqautopilot run incoming.xlsx --library answers.csv</pre></div></li>
-      <li><div><h3>Review and send</h3><p>You get a draft spreadsheet, a prioritised review queue, a missing-evidence list and an offline HTML report. Nothing is ever submitted for you.</p></div></li>
-    </ol>
-  </div>
-</section>
-
-<section>
-  <figure>
-    <img src="assets/report-synthetic.png" alt="Review report showing counts by status and a table of questions with answers, evidence IDs and confidence" width="1400" height="1000" loading="lazy">
-    <figcaption>The offline review report, run on the included sample data (fictional company). Optional local AI drafts are marked DRAFTED and still go to review.</figcaption>
-  </figure>
-</section>
-
-<section id="limits">
-  <div class="split">
-    <div class="section-head">
-      <span class="label">Built-in limits</span>
-      <h2>What it will never do.</h2>
-      <p class="lede">A questionnaire answer is a statement about your company. The tool is designed to keep unsupported statements out of it.</p>
+    <div class="faq-list">
+      <details open><summary>Does it include SIG or CAIQ content?</summary><p>No. Load the questionnaire your customer sent you. The tool works with spreadsheets that contain a question column; third-party questionnaire content is not bundled.</p></details>
+      <details><summary>Do I need an AI model?</summary><p>No. Matching, evidence gaps, legal routing, and the review queue work without one. A local model is optional and only adds evidence-grounded draft answers.</p></details>
+      <details><summary>Does any questionnaire data get uploaded?</summary><p>No. The product has no account, telemetry, or hosted service. Its optional model connection is restricted to the same computer.</p></details>
+      <details><summary>Will it answer every question?</summary><p>Intentionally, no. When approved evidence cannot support an answer, the row is marked as a gap. Legal questions and suspicious spreadsheet content are routed for review.</p></details>
+      <details><summary>Is this compliance or legal advice?</summary><p>No. It is a drafting and review tool. Your organization remains responsible for each answer it approves and sends.</p></details>
     </div>
-    <ul class="list never">
-      <li><span><strong>Invent certifications or audits.</strong> A draft that mentions SOC 2, ISO 27001, FedRAMP, encryption strength, numbers or incident history is discarded unless your cited approved answer says the same thing.</span></li>
-      <li><span><strong>Cite evidence that doesn't exist.</strong> Every draft must point to real IDs in your library.</span></li>
-      <li><span><strong>Send your data anywhere.</strong> The optional AI model must run on the same computer. Other addresses are refused in code.</span></li>
-      <li><span><strong>Answer legal or contract questions.</strong> Indemnity, liability and interpretation of law go straight to a person.</span></li>
-      <li><span><strong>Submit anything.</strong> You review, you send.</span></li>
-    </ul>
-  </div>
-</section>
+  </section>
 
-<section id="details">
-  <div class="split">
-    <div class="section-head">
-      <span class="label">Requirements</span>
-      <h2>What you need.</h2>
+  <section id="contact" class="contact-section">
+    <div class="shell contact-panel">
+      <div><p class="eyebrow">Talk to a person</p><h2>Have a product or support question?</h2></div>
+      <div><p>Write to <strong><a class="contact" href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a></strong>. Include your operating system and any error message if you need technical help.</p><a class="button button-light" href="mailto:contactprautof@gmail.com">Email PrautoForge <span aria-hidden="true">↗</span></a></div>
     </div>
-    <ul class="list">
-      <li><span><strong>Python 3.10 or newer.</strong> The core uses only the standard library.</span></li>
-      <li><span><strong>Optional:</strong> <code>openpyxl</code> for XLSX files. Without it, use CSV.</span></li>
-      <li><span><strong>Optional:</strong> a local <a href="https://github.com/ggml-org/llama.cpp">llama.cpp</a> server and a model you choose, for drafting. Without one, matching and review still work. No model is included.</span></li>
-      <li><span><strong>Included:</strong> full source, quickstart, security and privacy notes, a 17-check self-test, a test suite and a sample company to try it on.</span></li>
-    </ul>
-  </div>
-</section>
-
-<section id="buy">
-  <div class="buy">
-    <div class="section-head">
-      <span class="label">Pricing</span>
-      <h2>One price, one organization, every computer you own.</h2>
-      <p class="lede">Buy once and use it on any number of your organization's machines. Updates to version 1.x are included.</p>
-    </div>
-    <div class="buy-card">
-      <div class="amount">$99 <small>USD, one-time</small></div>
-      <a class="btn" href="#buy" aria-disabled="true">Available soon</a>
-      <p class="fine">Checkout, tax and delivery are handled by Lemon Squeezy, our reseller and merchant of record. You get a download link by email right after purchase. See the <a href="terms.html#refunds">refund policy</a>.</p>
-    </div>
-  </div>
-</section>
-
-<section id="faq">
-  <div class="section-head"><span class="label">Questions</span><h2>FAQ</h2></div>
-  <dl>
-    <div><dt>Does it include SIG or CAIQ questionnaire content?</dt><dd>No. Those are published by their owners under their own terms. Load the questionnaire your customer sent you; the tool works with any spreadsheet that has a question column.</dd></div>
-    <div><dt>Do I need an AI model?</dt><dd>No. Matching, gap lists, legal routing and the review queue work without one. A local model only adds DRAFTED answers for partial matches, and those are checked against your evidence before you see them.</dd></div>
-    <div><dt>Does anything get uploaded?</dt><dd>No. The tool collects no usage data and never contacts us. Your purchase is handled by Lemon Squeezy under its own privacy policy.</dd></div>
-    <div><dt>Is this legal or compliance advice?</dt><dd>No. It's a drafting aid. You remain responsible for every answer you send.</dd></div>
-  </dl>
-</section>
+  </section>
 </main>
 
-<footer>
-  <span>© 2026 PrautoForge · Support: <a class="contact" href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a></span>
-  <nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; refunds</a></nav>
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div><a class="brand footer-brand" href="./"><img src="assets/icon.png" alt="" width="32" height="32"><span>PrautoForge</span></a><p>Practical software for careful work.</p></div>
+    <div><p class="footer-label">Product</p><a href="#product">What you get</a><a href="#workflow">How it works</a><a href="#requirements">Requirements</a></div>
+    <div><p class="footer-label">Company</p><a href="mailto:contactprautof@gmail.com">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms &amp; refunds</a></div>
+    <p class="copyright">© 2026 PrautoForge. Questionnaire Autopilot is a drafting aid, not legal or compliance advice.</p>
+  </div>
 </footer>
-</div>
 </body>
 </html>
