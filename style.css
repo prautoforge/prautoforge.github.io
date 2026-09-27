@@ -296,3 +296,25 @@ details p { max-width: 670px; margin: -6px 45px 24px 0; color: var(--muted); fon
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+/* Guides */
+.article h1 { font-size: clamp(2.2rem, 5vw, 3.3rem); line-height: 1.08; }
+.article table { width: 100%; border-collapse: collapse; margin: 18px 0 8px; font-size: .95rem; display: block; overflow-x: auto; }
+.article th, .article td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--rule); color: var(--muted); }
+.article th { color: var(--ink); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; }
+.article ol, .article ul { padding-left: 1.3em; display: grid; gap: 8px; }
+.article code { background: var(--soft); padding: 1px 6px; border-radius: 5px; color: var(--ink); }
+.article-cta { margin-top: 64px; padding: 28px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--rule); display: grid; gap: 12px; justify-items: start; }
+.article-cta p { margin: 0; }
+.article-cta .eyebrow { margin: 0; }
+.article-meta { margin-top: 40px; font-size: .85rem; }
+.guide-list { display: grid; gap: 14px; }
+.guide-card { display: grid; gap: 6px; padding: 22px 24px; border: 1px solid var(--rule); border-radius: var(--radius); background: var(--paper); text-decoration: none; color: var(--ink); transition: border-color 160ms ease, transform 160ms ease; }
+.guide-card:hover { border-color: var(--ink); transform: translateY(-2px); }
+.guide-card .eyebrow { margin: 0; }
+.guide-card strong { font-size: 1.2rem; letter-spacing: -.01em; }
+.guide-card span:last-child { color: var(--muted); font-size: .95rem; }
+@media (prefers-reduced-motion: reduce) { .guide-card, .guide-card:hover { transition: none; transform: none; } }
+/* Buttons inside article text keep their own colours (the article link colour must not override them). */
+.doc-shell a.button-primary, .doc-shell a.button-primary:hover { color: #fff; }
+.doc-shell a.button-secondary { color: var(--ink); }

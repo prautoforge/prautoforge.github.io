@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Security questionnaire answer library: free CSV template | PrautoForge</title>
+  <meta name="description" content="A free template for keeping approved security answers in one place, with evidence references, approvers and expiry dates, plus how to fill it in from your past questionnaires.">
+  <meta name="theme-color" content="#10231f">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Security questionnaire answer library: free CSV template">
+  <meta property="og:description" content="A free template for keeping approved security answers in one place, with evidence references, approvers and expiry dates, plus how to fill it in from your past questionnaires.">
+  <meta property="og:url" content="https://prautoforge.github.io/guides/answer-library-template.html">
+  <meta property="og:image" content="https://prautoforge.github.io/assets/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://prautoforge.github.io/guides/answer-library-template.html">
+  <link rel="icon" href="../assets/icon.png">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Security questionnaire answer library: free CSV template","description":"A free template for keeping approved security answers in one place, with evidence references, approvers and expiry dates, plus how to fill it in from your past questionnaires.","author":{"@type":"Organization","name":"PrautoForge"},"publisher":{"@type":"Organization","name":"PrautoForge"},"dateModified":"2026-09-26","mainEntityOfPage":"https://prautoforge.github.io/guides/answer-library-template.html"}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header legal-header">
+  <div class="shell nav-shell">
+    <a class="brand" href="../" aria-label="PrautoForge home"><img src="../assets/icon.png" alt="" width="36" height="36"><span>PrautoForge</span></a>
+    <nav class="main-nav" aria-label="Primary navigation"><a href="../">Product</a><a href="./">Guides</a></nav>
+    <a class="nav-cta" href="mailto:contactprautof@gmail.com">Contact</a>
+  </div>
+</header>
+<main id="main" class="shell doc-shell article">
+  <p class="eyebrow">Free template</p>
+  <h1>Security questionnaire answer library: free CSV template</h1>
+  <p class="doc-lede">An answer library is a single spreadsheet of security answers your company has already approved. It turns every questionnaire after the first into mostly copying, and it makes sure the answers you send stay consistent and current.</p>
+  <p><a class="button button-primary" href="../assets/answer-library-template.csv" download>Download the free
+  template (CSV) <span aria-hidden="true">↓</span></a></p>
+
+  <h2>The columns</h2>
+  <table>
+    <thead><tr><th>Column</th><th>What goes in it</th></tr></thead>
+    <tbody>
+      <tr><td><code>id</code></td><td>A stable ID such as ENC-001. Never reuse an ID for a different answer.</td></tr>
+      <tr><td><code>topic</code></td><td>Encryption, Access control, Incident response and so on.</td></tr>
+      <tr><td><code>question</code></td><td>The usual wording of the question this answers.</td></tr>
+      <tr><td><code>answer</code></td><td>The exact text that was approved, word for word.</td></tr>
+      <tr><td><code>evidence_ref</code></td><td>Where the proof lives: a policy section, audit report or ticket.</td></tr>
+      <tr><td><code>approved_by</code>, <code>approved_at</code></td><td>Who signed off and when.</td></tr>
+      <tr><td><code>expires_at</code></td><td>When the answer must be re-checked, usually a year later.</td></tr>
+      <tr><td><code>keywords</code></td><td>Other words people use for the same thing (MFA, 2FA, SSO).</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How to fill it in</h2>
+  <ol>
+    <li>Collect the last two or three questionnaires your company sent, plus your security policies.</li>
+    <li>For each answer that was reviewed before it was sent, add one row. Keep the approved wording.</li>
+    <li>Add the evidence reference. If you cannot name the evidence, the answer needs review before it goes in.</li>
+    <li>Set an expiry date. Controls change, and an out-of-date answer is worse than none.</li>
+    <li>Ask your security owner to review the whole library once, then add new answers as they are approved.</li>
+  </ol>
+  <p>Most small teams end up with 60 to 120 answers. That covers the large majority of what standard
+  questionnaires such as <a href="sig-lite-vs-caiq.html">SIG Lite and CAIQ</a> ask.</p>
+
+  <h2>Keep it honest</h2>
+  <p>Only put answers in the library that are true today and supported by evidence. If you are not certified to a
+  standard, the approved answer says so. A library of accurate answers is what lets you respond quickly without
+  creating risk.</p>
+<aside class="article-cta">
+  <p class="eyebrow">Questionnaire Autopilot</p>
+  <p><strong>Do this with your own approved answers, offline.</strong> Questionnaire Autopilot reads the buyer's
+  spreadsheet, copies matching approved answers word for word with their evidence IDs, lists what is missing, and
+  sends legal questions to a person. It runs on your computer and never invents a certification.</p>
+  <a class="button button-primary" href="../">See how it works <span aria-hidden="true">→</span></a>
+</aside>
+  <p class="article-meta">Last updated 26 September 2026. PrautoForge makes Questionnaire Autopilot. This guide is general
+  information, not legal or compliance advice.</p>
+</main>
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div><a class="brand footer-brand" href="../"><img src="../assets/icon.png" alt="" width="32" height="32"><span>PrautoForge</span></a><p>Practical software for careful work.</p></div>
+    <div><p class="footer-label">Product</p><a href="../">Questionnaire Autopilot</a><a href="./">Guides</a></div>
+    <div><p class="footer-label">Legal</p><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms &amp; refunds</a><a href="mailto:contactprautof@gmail.com">Contact</a></div>
+    <p class="copyright">© 2026 PrautoForge.</p>
+  </div>
+</footer>
+</body>
+</html>
