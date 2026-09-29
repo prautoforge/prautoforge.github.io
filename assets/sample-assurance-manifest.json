@@ -1,0 +1,13 @@
+{
+  "company": "Examplify Inc. (Synthetic)",
+  "generated_at": "2026-09-29T00:12:23+00:00",
+  "shareable_answers": [
+    "ENC-001",
+    "IAM-001",
+    "IR-001",
+    "AI-001",
+    "PRIV-001"
+  ],
+  "excluded_private_or_expired": 0,
+  "review_required": true
+}

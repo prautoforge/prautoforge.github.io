@@ -66,52 +66,26 @@
     } else if (replay) { replay.hidden = false; }
   }
 
-  /* ---------- claim guard: the same rules as sqautopilot/guard.py ---------- */
-  var CERTS = {
-    "SOC 2": /\bsoc\s*-?\s*2\b|\bsoc2\b/i, "SOC 1": /\bsoc\s*-?\s*1\b/i, "Type II": /\btype\s*(?:ii|2)\b/i,
-    "Type I": /\btype\s*(?:i|1)\b(?!i)/i, "ISO 27001": /\biso(?:\/iec)?\s*27001\b/i, "ISO 27701": /\biso(?:\/iec)?\s*27701\b/i,
-    "ISO 42001": /\biso(?:\/iec)?\s*42001\b/i, "ISO 9001": /\biso\s*9001\b/i, "FedRAMP": /\bfedramp\b/i,
-    "HITRUST": /\bhitrust\b/i, "PCI DSS": /\bpci(?:[\s-]*dss)?\b/i, "HIPAA": /\bhipaa\b/i,
-    "CSA STAR": /\bcsa\s*star\b|\bstar\s*level\b/i, "CMMC": /\bcmmc\b/i, "NIST 800-53": /\b800-53\b/i,
-    "NIST 800-171": /\b800-171\b/i, "GDPR": /\bgdpr\b/i, "CCPA": /\bccpa\b/i, "TISAX": /\btisax\b/i,
-    "Cyber Essentials": /\bcyber\s*essentials\b/i, "StateRAMP": /\bstateramp\b/i
-  };
-  var TECH = {
-    "AES-256": /\baes[\s-]*256\b/i, "AES-128": /\baes[\s-]*128\b/i, "TLS 1.3": /\btls\s*v?1\.3\b/i,
-    "TLS 1.2": /\btls\s*v?1\.2\b/i, "FIPS 140": /\bfips[\s-]*140(?:-[23])?\b/i, "HSM": /\bhsm\b|hardware security module/i,
-    "KMS": /\bkms\b/i, "BYOK": /\bbyok\b/i, "SHA-256": /\bsha[\s-]*256\b/i, "RSA": /\brsa[\s-]*\d{4}\b/i
-  };
-  var EVENTS = {
-    "no incidents": /\b(?:no|zero|never\s+(?:had|experienced))\b.{0,30}\b(?:incident|breach)(?:es|s)?\b/i,
-    "breach": /\bbreach(?:es|ed)?\b/i, "audit passed": /\b(?:passed|clean|unqualified)\b.{0,20}\baudit\b/i,
-    "penetration test": /\bpen(?:etration)?[\s-]*test/i, "certified": /\bcertified\b|\bcertification\b/i,
-    "compliant": /\bcompliant\b|\bcompliance with\b/i, "attested": /\battest(?:ed|ation)\b/i
-  };
-  var ATTEST = /\bwe (?:hereby )?(?:certify|guarantee|warrant|attest|represent)\b|\bguaranteed\b|\b100\s*%\s*(?:secure|uptime|compliant)\b/i;
-  var NUM = /\b\d+(?:\.\d+)?\s*(?:%|percent|days?|hours?|minutes?|years?|months?|bits?)(?![a-z])/gi;
-
-  var claims = function (text) {
-    var found = {};
-    [CERTS, TECH, EVENTS].forEach(function (group) {
-      Object.keys(group).forEach(function (k) { if (group[k].test(text)) found[k] = true; });
-    });
-    var m; NUM.lastIndex = 0;
-    while ((m = NUM.exec(text))) found[m[0].toLowerCase().replace(/\s+/g, "")] = true;
-    return found;
-  };
+  /* ---------- claim guard demo: rules come from assets/guard.js (parity-tested with the product) ---------- */
+  var G = window.PFGuard;
+  if (!G) return;
 
   var EVIDENCE = [
     { id: "ENC-001", text: "Examplify encrypts customer data at rest using AES-256 via the cloud provider's managed key service (KMS).",
       presets: [["Accurate", "Customer data is encrypted at rest with AES-256 using the cloud provider's KMS."],
                 ["Adds a certification", "Customer data is encrypted at rest with AES-256 using the cloud provider's KMS, and Examplify is ISO 27001 certified."],
-                ["Adds a detail", "Customer data is encrypted at rest with AES-256 and keys are held in a FIPS 140-3 HSM."]] },
+                ["Adds \u201cin transit\u201d", "Customer data is encrypted in transit and at rest with AES-256 using the cloud provider's KMS."]] },
     { id: "CMP-001", text: "Examplify has completed a SOC 2 Type II examination covering the Security criterion for the period 2025-04-01 to 2026-03-31. The report is available under NDA.",
       presets: [["Accurate", "Examplify has a SOC 2 Type II report covering the Security criterion, available under NDA."],
                 ["Adds FedRAMP", "Examplify is SOC 2 Type II and FedRAMP authorized."],
                 ["Adds history", "Examplify passed a clean audit and has had no security incidents."]] },
+    { id: "CMP-002", text: "Examplify is not ISO 27001 certified. Its security program is aligned to the SOC 2 Security criterion.",
+      presets: [["Accurate", "Examplify is not ISO 27001 certified; its program is aligned to the SOC 2 Security criterion."],
+                ["Drops the \u201cnot\u201d", "Examplify is ISO 27001 certified and aligned to the SOC 2 Security criterion."],
+                ["Adds a scope", "Examplify is not ISO 27001 certified, and all systems are covered by its SOC 2 program."]] },
     { id: "BCP-002", text: "The documented recovery time objective is 8 hours and the recovery point objective is 24 hours for the production service.",
       presets: [["Accurate", "Our recovery time objective is 8 hours and our recovery point objective is 24 hours."],
-                ["Wrong number", "Our recovery time objective is 4 hours and our recovery point objective is 24 hours."],
+                ["Wrong number", "Our recovery time objective is four hours and our recovery point objective is 24 hours."],
                 ["Promises too much", "We guarantee 100% uptime, with recovery in under 8 hours."]] }
   ];
 
@@ -127,34 +101,31 @@
 
   var check = function () {
     var text = draft.value;
-    var ev = claims(current.text);
-    var got = claims(text);
-    var keys = Object.keys(got);
-    var bad = keys.filter(function (k) { return !ev[k]; });
-    var attest = ATTEST.test(text);
-    var blocked = !text.trim() || bad.length > 0 || attest;
-    verdict.className = "verdict " + (blocked ? "blocked" : "ok");
-    verdict.querySelector(".stamp").textContent = blocked ? "Blocked" : "Allowed";
+    var r = G.check(text, current.text);
+    verdict.className = "verdict " + (r.ok ? "ok" : "blocked");
+    verdict.querySelector(".stamp").textContent = r.ok ? "Allowed" : "Blocked";
     var msg;
     if (!text.trim()) msg = "An empty draft is never used.";
-    else if (blocked) {
-      var parts = [];
-      if (bad.length) parts.push("mentions " + bad.join(", ") + ", which the approved evidence does not say");
-      if (attest) parts.push("uses guarantee or attestation language");
-      msg = "Discarded: it " + parts.join(" and ") + ". Your reviewer never sees it.";
-    } else msg = keys.length ? "Every claim in the draft is backed by " + current.id + "." : "No specific claims; the draft stays within the evidence.";
+    else if (!r.ok) msg = "Discarded: it " + r.findings.join("; it ") + ". Your reviewer never sees it.";
+    else msg = r.claims.length ? "Every claim in the draft is backed by " + current.id + "." : "No specific claims; the draft stays within the evidence.";
     verdict.querySelector("p").textContent = msg;
     list.innerHTML = "";
-    keys.forEach(function (k) {
+    var bad = {};
+    r.unsupported.concat(r.flipped).forEach(function (k) { bad[k] = true; });
+    var add = function (label, ok, name) {
       var li = document.createElement("li");
-      var ok = !!ev[k];
       li.className = ok ? "ok" : "bad";
       var b = document.createElement("b");
-      b.textContent = ok ? "✓ in evidence" : "✕ not in evidence";
+      b.textContent = label;
       li.appendChild(b);
-      li.appendChild(document.createTextNode(" " + k));
+      li.appendChild(document.createTextNode(" " + name));
       list.appendChild(li);
+    };
+    (r.claims || []).forEach(function (k) {
+      add(bad[k] ? (r.flipped.indexOf(k) >= 0 ? "\u2715 opposite of evidence" : "\u2715 not in evidence") : "\u2713 in evidence", !bad[k], G.describe(k));
     });
+    r.flipped.forEach(function (k) { if (!(r.claims || []).length || (r.claims.indexOf(k) < 0)) add("\u2715 opposite of evidence", false, G.describe(k)); });
+    r.widened.forEach(function (k) { add("\u2715 wider than evidence", false, k); });
   };
 
   var choose = function (ev, presetIndex) {

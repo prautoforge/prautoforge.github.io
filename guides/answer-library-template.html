@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://prautoforge.github.io/guides/answer-library-template.html">
   <link rel="icon" href="../assets/icon.png">
   <link rel="stylesheet" href="../style.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Security questionnaire answer library: free CSV template","description":"A free template for keeping approved security answers in one place, with evidence references, approvers and expiry dates, plus how to fill it in from your past questionnaires.","author":{"@type":"Organization","name":"PrautoForge"},"publisher":{"@type":"Organization","name":"PrautoForge"},"dateModified":"2026-09-26","mainEntityOfPage":"https://prautoforge.github.io/guides/answer-library-template.html"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Security questionnaire answer library: free CSV template","description":"A free template for keeping approved security answers in one place, with evidence references, approvers and expiry dates, plus how to fill it in from your past questionnaires.","author":{"@type":"Organization","name":"PrautoForge"},"publisher":{"@type":"Organization","name":"PrautoForge"},"dateModified":"2026-09-28","mainEntityOfPage":"https://prautoforge.github.io/guides/answer-library-template.html"}</script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -45,8 +45,14 @@
       <tr><td><code>approved_by</code>, <code>approved_at</code></td><td>Who signed off and when.</td></tr>
       <tr><td><code>expires_at</code></td><td>When the answer must be re-checked, usually a year later.</td></tr>
       <tr><td><code>keywords</code></td><td>Other words people use for the same thing (MFA, 2FA, SSO).</td></tr>
+      <tr><td><code>owner</code></td><td>The person or team responsible for keeping the statement current.</td></tr>
+      <tr><td><code>applies_to</code></td><td>The product, region or environment where this answer is true.</td></tr>
+      <tr><td><code>shareable</code></td><td>Set to <code>yes</code> only for customer-safe Trust Pack content. The default is private.</td></tr>
     </tbody>
   </table>
+  <p>If you already have a completed Excel questionnaire, Library Builder can extract its responses into a
+  review-required staging sheet: <code>python -m sqautopilot import-history completed.xlsx</code>. It never
+  auto-approves an old response.</p>
 
   <h2>How to fill it in</h2>
   <ol>
@@ -70,7 +76,7 @@
   sends legal questions to a person. It runs on your computer and never invents a certification.</p>
   <a class="button button-primary" href="../">See how it works <span aria-hidden="true">→</span></a>
 </aside>
-  <p class="article-meta">Last updated 26 September 2026. PrautoForge makes Questionnaire Autopilot. This guide is general
+  <p class="article-meta">Last updated 28 September 2026. PrautoForge makes Questionnaire Autopilot. This guide is general
   information, not legal or compliance advice.</p>
 </main>
 <footer class="site-footer">

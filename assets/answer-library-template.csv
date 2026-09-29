@@ -1,5 +1,5 @@
-id,topic,question,answer,evidence_ref,approved_by,approved_at,expires_at,keywords
-ENC-001,Encryption,Is customer data encrypted at rest?,<the exact answer your security owner approved>,"<policy section or report, e.g. Encryption Policy 2.1>",<name and role>,2026-01-31,2027-01-31,encryption at rest storage database disks
-IAM-001,Access control,Is multi-factor authentication required for employee access?,<approved answer>,<evidence reference>,<name and role>,2026-01-31,2027-01-31,mfa 2fa multifactor sso identity provider
-IR-001,Incident response,Do you have a documented incident response plan?,<approved answer>,<evidence reference>,<name and role>,2026-01-31,2027-01-31,incident response plan tabletop notification
-BCP-001,Business continuity,Are backups performed and tested?,<approved answer>,<evidence reference>,<name and role>,2026-01-31,2027-01-31,backup restore test recovery
+id,topic,question,answer,evidence_ref,approved_by,approved_at,expires_at,keywords,owner,applies_to,shareable
+ENC-001,Encryption,Is customer data encrypted at rest?,<the exact answer your security owner approved>,"<policy section or report, e.g. Encryption Policy 2.1>",<name and role>,2026-01-31,2027-01-31,encryption at rest storage database disks,Security,Production service,no
+IAM-001,Access control,Is multi-factor authentication required for employee access?,<approved answer>,<evidence reference>,<name and role>,2026-01-31,2027-01-31,mfa 2fa multifactor sso identity provider,Engineering,Workforce access,no
+IR-001,Incident response,Do you have a documented incident response plan?,<approved answer>,<evidence reference>,<name and role>,2026-01-31,2027-01-31,incident response plan tabletop notification,Security,Company-wide,no
+BCP-001,Business continuity,Are backups performed and tested?,<approved answer>,<evidence reference>,<name and role>,2026-01-31,2027-01-31,backup restore test recovery,Engineering,Production service,no
