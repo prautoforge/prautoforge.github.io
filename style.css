@@ -589,3 +589,57 @@ p { margin: 0; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+
+/* ---------- evidence map ---------- */
+.evmap { position: relative; overflow: hidden; }
+.evmap::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(60% 50% at 70% 40%, rgb(198 242 107 / 7%), transparent 70%),
+              radial-gradient(40% 40% at 15% 80%, rgb(88 212 154 / 6%), transparent 70%); }
+.map { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(120px, .8fr) minmax(0, 1fr); align-items: stretch; }
+.map-col { display: grid; gap: 10px; align-content: start; position: relative; z-index: 1; }
+.map-head { font: 600 .7rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: #7f988f; margin-bottom: 4px; }
+.mq { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 10px; align-items: center; text-align: left; cursor: default;
+  font: 500 .9rem/1.35 var(--sans); color: #dbe7e1; background: rgb(255 255 255 / 4%); border: 1px solid #25423a;
+  border-radius: 12px; padding: 10px 14px; min-height: 52px; transition: background 180ms, border-color 180ms, color 180ms, opacity 180ms; }
+.mq span { font: 600 .74rem var(--mono); color: #7f988f; }
+.me { display: grid; gap: 2px; font-size: .84rem; line-height: 1.35; color: #bcd0c8; background: rgb(255 255 255 / 5%);
+  border: 1px solid #25423a; border-left: 3px solid #58d49a; border-radius: 12px; padding: 9px 14px; min-height: 52px;
+  align-content: center; transition: background 180ms, border-color 180ms, opacity 180ms; }
+.me b { font: 600 .74rem var(--mono); color: #58d49a; letter-spacing: .02em; }
+.me.route { border-left-color: var(--c); }
+.me.route b { color: var(--c); font-family: var(--sans); font-size: .82rem; }
+.map.focused .mq:not(.on), .map.focused .me:not(.on) { opacity: .35; }
+.mq.on { background: rgb(198 242 107 / 10%); border-color: var(--lime); color: #fff; }
+.me.on { background: rgb(255 255 255 / 9%); border-color: #3e6a5d; color: #fff; }
+.map-lines { position: relative; width: 100%; height: 100%; overflow: visible; z-index: 0; }
+.mq .to { display: none; }
+.thread { fill: none; stroke-width: 1.8; opacity: .9; transition: opacity 180ms, stroke-width 180ms; }
+.thread.t-matched { stroke: #58d49a; }
+.thread.t-drafted { stroke: #f1c35a; }
+.thread.t-gap { stroke: #ff9a6b; stroke-dasharray: 2 5 !important; }
+.thread.t-legal { stroke: #b7a3ff; stroke-dasharray: 2 5 !important; }
+.thread.t-flag { stroke: #b6c4bf; stroke-dasharray: 2 5 !important; }
+.thread.on { stroke-width: 3; opacity: 1; }
+.thread.off, .node.off, .guard.off { opacity: .12; }
+.node { stroke: none; }
+.node.t-matched { fill: #58d49a; } .node.t-drafted { fill: #f1c35a; } .node.t-gap { fill: #ff9a6b; }
+.node.t-legal { fill: #b7a3ff; } .node.t-flag { fill: #b6c4bf; }
+.guard circle { fill: var(--ink); stroke: #f1c35a; stroke-width: 1.8; }
+.guard path { fill: none; stroke: #f1c35a; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.thread.grow { stroke-dashoffset: var(--len); animation: thread-grow 900ms cubic-bezier(.3, .7, .2, 1) forwards; }
+.thread.fade { opacity: 0; animation: thread-fade 700ms ease forwards; }
+.guard.pop { opacity: 0; transform-box: fill-box; animation: thread-fade 400ms ease forwards; }
+@keyframes thread-grow { to { stroke-dashoffset: 0; } }
+@keyframes thread-fade { to { opacity: .9; } }
+.map-key { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 28px; font-size: .86rem; color: #a9bdb5; }
+.map-key li { display: inline-flex; align-items: center; gap: 10px; }
+.map-key li::before { content: ""; width: 28px; height: 0; border-top: 2px solid #58d49a; }
+.map-key .k-drafted::before { border-top: 2px dashed #f1c35a; }
+.map-key .k-route::before { border-top: 2px dotted #ff9a6b; }
+@media (max-width: 900px) {
+  .map { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .map-lines { display: none; }
+  .mq { grid-template-columns: 38px minmax(0, 1fr); }
+  .mq .to { display: block; grid-column: 2; font: 600 .74rem var(--mono); font-style: normal; color: var(--lime); }
+  .map-e { display: none; }
+}

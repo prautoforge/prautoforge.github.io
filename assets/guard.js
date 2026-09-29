@@ -61,6 +61,7 @@
   var ATTEST = /\bwe (?:hereby )?(?:certify|guarantee|warrant|attest|represent)\b|\bguaranteed\b|\b100\s*%\s*(?:secure|uptime|compliant)\b/i;
   var NUM = /\b\d+(?:\.\d+)?\s*(?:%|percent|days?|hours?|minutes?|years?|months?|bits?)(?![a-z])/gi;
   var NEG = /\b(?:not|no|never|neither|nor|without|none|cannot|lacks?|lacking)\b|n't\b/i;
+  var NEG_AFTER = /^[\s,]*(?:(?!(?:and|or|but|while|whereas)\b)[\w-]+\s+){0,3}?(?:(?:is|are|was|were|has|have|had|does|do|did|will|can)\s+(?:not|never)\b|(?:isn't|aren't|wasn't|weren't|hasn't|haven't|doesn't|don't|didn't|won't|cannot)\b)/i;
   var CLAUSE = /[.;!?:\n]+|,\s*(?:and|but|while|whereas|however)\b|\bbut\b|\bhowever\b/i;
   var LEGAL = new RegExp(
     "\\b(indemnif\\w*|limitation of liability|liabilit(?:y|ies)|warrant(?:y|ies)|governing law|" +
@@ -107,7 +108,8 @@
         var re = new RegExp(POLAR[key], "gi"), m;
         while ((m = re.exec(clause))) {
           var before = clause.slice(Math.max(0, m.index - 60), m.index);
-          out[key + "|" + (NEG.test(before) ? "1" : "0")] = true;
+          var after = clause.slice(m.index + m[0].length, m.index + m[0].length + 60);
+          out[key + "|" + (NEG.test(before) || NEG_AFTER.test(after) ? "1" : "0")] = true;
           if (m[0] === "") re.lastIndex++;
         }
       });
