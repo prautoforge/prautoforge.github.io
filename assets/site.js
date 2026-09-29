@@ -156,3 +156,17 @@
   draft.addEventListener("input", check);
   choose(EVIDENCE[0], 1);
 })();
+
+/* hero: the replay panel tilts in 3D with the pointer */
+(function () {
+  "use strict";
+  var run = document.getElementById("run");
+  var hero = document.querySelector(".hero");
+  if (!run || !hero || (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+  hero.addEventListener("pointermove", function (e) {
+    var b = run.getBoundingClientRect();
+    var x = (e.clientX - (b.left + b.width / 2)) / window.innerWidth, y = (e.clientY - (b.top + b.height / 2)) / window.innerHeight;
+    run.style.transform = "perspective(1400px) rotateY(" + (x * 10).toFixed(2) + "deg) rotateX(" + (-y * 8).toFixed(2) + "deg)";
+  });
+  hero.addEventListener("pointerleave", function () { run.style.transform = ""; });
+})();

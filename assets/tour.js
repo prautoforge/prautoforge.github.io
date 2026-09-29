@@ -135,7 +135,7 @@
       var ev = el("p", "rd-ev");
       ev.appendChild(document.createTextNode("Evidence "));
       ev.appendChild(el("span", "chip", it.ev));
-      ev.appendChild(document.createTextNode(" " + it.src + (it.syn ? " · sample data" : "")));
+      ev.appendChild(document.createTextNode(" " + it.src + (it.syn ? ", sample data" : "")));
       detail.appendChild(ev);
       if (it.evText) {
         var cmp = el("button", "rd-compare", "Compare with the approved answer");
