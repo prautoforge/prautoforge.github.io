@@ -34,15 +34,38 @@
       .forEach(function (f) { dl.appendChild(el("dt", "", f[0])); dl.appendChild(el("dd", "", f[1] || "Not recorded")); });
     card.appendChild(dl);
   }
+  var panel = document.getElementById("atlas-topics");
+  function choose(name) { topic = topic === name ? null : name; orb.filter(topic); panel.hidden = true; drawLegend(); }
+  function chip(t, cls) {
+    var b = el("button", cls || "atlas-chip"); b.type = "button"; b.setAttribute("aria-pressed", topic === t.name ? "true" : "false");
+    var dot = el("i"); dot.style.background = t.color; b.appendChild(dot); b.appendChild(el("span", "", t.name)); b.appendChild(el("b", "", String(t.n)));
+    b.addEventListener("click", function () { choose(t.name); });
+    return b;
+  }
+  /* one row of whole chips; the topics that do not fit are listed under "N more" */
   function drawLegend() {
     legend.textContent = "";
-    orb.topics().forEach(function (t) {
-      var b = el("button", "atlas-chip"); b.type = "button"; b.setAttribute("aria-pressed", topic === t.name ? "true" : "false");
-      var dot = el("i"); dot.style.background = t.color; b.appendChild(dot); b.appendChild(el("span", "", t.name)); b.appendChild(el("b", "", String(t.n)));
-      b.addEventListener("click", function () { topic = topic === t.name ? null : t.name; orb.filter(topic); drawLegend(); });
-      legend.appendChild(b);
-    });
+    var all = orb.topics();
+    var ordered = all.filter(function (t) { return t.name === topic; }).concat(all.filter(function (t) { return t.name !== topic; }));
+    var chips = ordered.map(function (t) { return chip(t); }), shown = chips.length, more = null;
+    chips.forEach(function (c) { legend.appendChild(c); });
+    while (legend.scrollWidth > legend.clientWidth + 1 && shown > 0) {
+      legend.removeChild(chips[--shown]);
+      if (!more) {
+        more = el("button", "atlas-chip more"); more.type = "button";
+        more.addEventListener("click", function (e) {
+          e.stopPropagation(); panel.textContent = "";
+          all.forEach(function (t) { var b = chip(t, "atlas-topic" + (topic === t.name ? " on" : "")); panel.appendChild(b); });
+          panel.hidden = !panel.hidden;
+        });
+        legend.appendChild(more);
+      }
+      more.textContent = (all.length - shown) + " more";
+    }
   }
+  document.addEventListener("click", function () { panel.hidden = true; });
+  panel.addEventListener("click", function (e) { e.stopPropagation(); });
+  if (window.ResizeObserver) { var lastW = 0; new ResizeObserver(function () { if (box.clientWidth !== lastW) { lastW = box.clientWidth; drawLegend(); } }).observe(box); }
   drawLegend();
   search.addEventListener("input", function () { var n = orb.search(search.value); search.classList.toggle("none", !!search.value && !n); });
   document.getElementById("atlas-in").addEventListener("click", function () { orb.zoom(1.25); });

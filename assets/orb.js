@@ -135,14 +135,24 @@
         n.glow = Math.max(0, n.glow - (dt || 16) / 2200);
       });
       if (data && (opts.labels !== false)) {  /* topic names on the side facing the viewer */
-        ctx.font = "600 10.5px 'Geist Mono', Consolas, monospace"; ctx.textAlign = "center";
-        centroids.forEach(function (c) {
-          var p = project(c, cx, cy, R * 1.06);
-          if (p.z > -0.25 || c.n < 2 || p.y < 46 || p.y > H - 60) return;
-          var on = focusTopic === null || focusTopic === c.topic;
-          ctx.fillStyle = "rgba(" + topicColor[c.topic] + "," + ((on ? 0.9 : 0.25) * Math.min(1, -p.z * 2.2)).toFixed(3) + ")";
-          ctx.fillText(c.topic.toUpperCase(), p.x, p.y);
-        });
+        ctx.font = "600 10.5px 'Geist Mono', Consolas, monospace"; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        var placed = [];  /* labels never overlap each other, the nodes' hover area, or the edges of the view */
+        centroids.map(function (c) { return { c: c, p: project(c, cx, cy, R * 1.06) }; })
+          .sort(function (a1, b1) { return a1.p.z - b1.p.z; })
+          .forEach(function (it) {
+            var c = it.c, p = it.p;
+            if (p.z > -0.25 || c.n < 2 || p.y < 46 || p.y > H - 60) return;
+            var text = c.topic.toUpperCase(), w = ctx.measureText(text).width + 12, hgt = 18;
+            var box = { x: p.x - w / 2, y: p.y - hgt / 2, w: w, h: hgt };
+            if (box.x < 4 || box.x + box.w > W - 4) return;
+            if (placed.some(function (b) { return box.x < b.x + b.w && b.x < box.x + box.w && box.y < b.y + b.h && b.y < box.y + box.h; })) return;
+            placed.push(box);
+            var on = focusTopic === null || focusTopic === c.topic, a = (on ? 0.95 : 0.3) * Math.min(1, -p.z * 2.2);
+            ctx.fillStyle = "rgba(8,17,15," + (a * 0.72).toFixed(3) + ")";
+            ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(box.x, box.y, box.w, box.h, 5); else ctx.rect(box.x, box.y, box.w, box.h); ctx.fill();
+            ctx.fillStyle = "rgba(" + topicColor[c.topic] + "," + a.toFixed(3) + ")";
+            ctx.fillText(text, p.x, p.y + 0.5);
+          });
       }
       particles = particles.filter(function (pt) {
         pt.t += (dt || 16) / pt.dur;
