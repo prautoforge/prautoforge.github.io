@@ -1,0 +1,179 @@
+{
+  "first-run": {
+    "title": "First run and the sample company",
+    "seconds": 17.5,
+    "captions": [
+      "The Start screen opens first. The menu on the left lists every task, grouped by what it works on.",
+      "Start with the sample company runs a complete example on a fictional company, with nothing to set up.",
+      "When the run finishes, the summary shows how many questions have a proposed answer and what needs a person."
+    ],
+    "sped_up": false
+  },
+  "appearance-and-shortcuts": {
+    "title": "Appearance and quick actions",
+    "seconds": 12.8,
+    "captions": [
+      "The Dark mode switch at the bottom of the menu changes the appearance. The choice is remembered.",
+      "Press Ctrl and K (Command and K on a Mac), or click Quick actions, to open the quick action list.",
+      "Type part of a task name and press Enter to go straight to it."
+    ],
+    "sped_up": false
+  },
+  "create-library": {
+    "title": "Create your answer library",
+    "seconds": 13.5,
+    "captions": [
+      "Your approved answers live in one spreadsheet. On the Start screen, Create a new one makes it from a template.",
+      "The file my_approved_answers.csv is created in your results folder, and that folder opens so you can fill it in.",
+      "The card now shows the new library. Fill in one row per approved answer. Change lets you choose another file later."
+    ],
+    "sped_up": false
+  },
+  "build-library": {
+    "title": "Build your library from past questionnaires",
+    "seconds": 13.0,
+    "captions": [
+      "Build your library recovers the answers from questionnaires your team completed before.",
+      "Click the card and choose a completed questionnaire in Excel format.",
+      "Click Recover answers. The answers are saved to approval_candidates.csv for your team to approve."
+    ],
+    "sped_up": false
+  },
+  "library-health": {
+    "title": "Check library health",
+    "seconds": 12.3,
+    "captions": [
+      "Library health checks the approved answers themselves. Choose your library, then click Check library.",
+      "The tiles count active, shareable, expiring and expired approvals, and rows set aside for safety.",
+      "Each note below names the row and what to do about it, for example an approval that has expired."
+    ],
+    "sped_up": false
+  },
+  "guard-terms": {
+    "title": "Guard terms",
+    "seconds": 21.1,
+    "captions": [
+      "Guard terms are words your team treats like certifications. Put them in guard_terms.txt next to your library.",
+      "Library health lists the guard terms it found, here HIPAA and 24/7.",
+      "An answer that uses a guard term your approved answers do not support is marked At risk."
+    ],
+    "sped_up": false
+  },
+  "answer-questionnaire": {
+    "title": "Answer a questionnaire",
+    "seconds": 22.2,
+    "captions": [
+      "Click the first card and choose the buyer's questionnaire, in Excel or CSV format, exactly as they sent it.",
+      "Click the second card and choose your approved answers.",
+      "Save results in shows where the finished files go. Click Change to pick another folder.",
+      "Click Answer questionnaire. Each question is checked against your library as the run progresses.",
+      "The summary counts each status. Open report shows every question with its status and evidence."
+    ],
+    "sped_up": false
+  },
+  "review-and-edit": {
+    "title": "Review and edit answers",
+    "seconds": 27.2,
+    "captions": [
+      "Review and edit lists every question. The filters narrow the list, for example to questions that need a person.",
+      "Type in the search box to find a question or answer by any word.",
+      "Select a question to see its answer beside the approved evidence. Edit the text and it is checked as you type.",
+      "Use approved wording puts back the approved text. Clear empties the answer, and Revert to original undoes your edits."
+    ],
+    "sped_up": false
+  },
+  "export-final": {
+    "title": "Export the final file",
+    "seconds": 9.6,
+    "captions": [
+      "When the review is done, click Export final file.",
+      "A copy of the buyer's file is written with your final answers, and every answer is checked once more.",
+      "The result says whether the file is ready to send and lists anything that still needs attention."
+    ],
+    "sped_up": false
+  },
+  "check-before-sending": {
+    "title": "Check before sending",
+    "seconds": 15.0,
+    "captions": [
+      "Check before sending takes the final file you are about to send, including edits made outside the app.",
+      "Choose the final file and your approved answers, then click Run the check.",
+      "Each finding names the question and the claim your approved answers do not support.",
+      "Open pre-send report shows the full check, ready to keep with the questionnaire."
+    ],
+    "sped_up": false
+  },
+  "trust-pack": {
+    "title": "Customer trust pack",
+    "seconds": 11.6,
+    "captions": [
+      "Mark customer safe rows shareable=yes in your library. Then choose the library and enter your company name.",
+      "Click Build trust pack. Private and expired answers are left out automatically.",
+      "Open trust pack shows the page to review and then send to your customer yourself."
+    ],
+    "sped_up": false
+  },
+  "ai-cloud": {
+    "title": "AI with a cloud service",
+    "seconds": 19.6,
+    "captions": [
+      "AI drafting is optional. To use a cloud service, open AI drafting and choose the service, for example Anthropic.",
+      "Paste your API key and click Save key. The key is stored on this computer only. No key is entered in this guide.",
+      "Enter the model name or click Load list. Then tick the box that allows sending questions to that service.",
+      "Test connection sends one test question. Use this model turns drafting on for every questionnaire."
+    ],
+    "sped_up": false
+  },
+  "ai-local": {
+    "title": "AI on your computer",
+    "seconds": 49.1,
+    "captions": [
+      "To keep everything on your computer, run a model with llama.cpp, Ollama or LM Studio and choose it here.",
+      "Enter the address of the model server and the model name, then click Test connection.",
+      "Click Use this model. From now on, questions that only partly match your library get a drafted answer.",
+      "Every draft is checked against the approved answer it cites before you see it. Drafted answers are marked Drafted."
+    ],
+    "sped_up": true
+  },
+  "ai-off": {
+    "title": "Turn AI drafting off",
+    "seconds": 9.4,
+    "captions": [
+      "In use now shows the model that drafts answers. Turn off AI stops drafting at any time.",
+      "With AI turned off, answers come only from your approved library, word for word."
+    ],
+    "sped_up": false
+  },
+  "command-line": {
+    "title": "Command line",
+    "seconds": 34.3,
+    "captions": [
+      "Every task is also available from the command line, for scripts and scheduled jobs."
+    ],
+    "sped_up": false
+  },
+  "troubleshooting": {
+    "title": "Troubleshooting",
+    "seconds": 9.5,
+    "captions": [
+      "If an ad blocker or web filter blocks part of the app, the app reloads itself up to two times.",
+      "If it is still blocked, this message explains which setting to change in the ad blocker."
+    ],
+    "sped_up": false
+  },
+  "install": {
+    "title": "Install and uninstall on Windows",
+    "seconds": 33.4,
+    "captions": [
+      "Open the installer. Keep the suggested folder, which installs the app for your user account only, and click Next.",
+      "Tick Create a desktop shortcut if you want one, then click Next.",
+      "Check the summary and click Install.",
+      "Leave Open Questionnaire Autopilot now ticked and click Finish.",
+      "The app opens on the Start screen. Later, open it from the Start menu or the desktop shortcut.",
+      "To uninstall, choose Uninstall in Settings, then Apps. Windows asks you to confirm.",
+      "The app is removed. Your settings stay until you delete their folder."
+    ],
+    "sped_up": false,
+    "note": "Installer screens; the install folder path is pixelated because it contains the Windows user name."
+  }
+}

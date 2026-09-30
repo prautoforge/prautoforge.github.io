@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User guide, Questionnaire Autopilot</title>
+  <meta name="description" content="Step by step instructions for every part of Questionnaire Autopilot, each with a short video: installing, your answer library, answering and checking questionnaires, trust packs and AI drafting.">
+  <meta name="theme-color" content="#10231f">
+  <link rel="canonical" href="https://prautoforge.github.io/user-guide.html">
+  <link rel="icon" href="assets/icon.png">
+  <script src="assets/theme.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header legal-header">
+  <div class="shell nav-shell">
+    <a class="brand" href="./" aria-label="PrautoForge home"><img src="assets/icon.png" alt="" width="36" height="36"><span>PrautoForge</span></a>
+    <nav class="main-nav" aria-label="Guide navigation"><a href="./">Product</a><a href="user-guide.html" aria-current="page">User guide</a><a href="guides/">Articles</a></nav>
+    <a class="nav-cta" href="mailto:contactprautof@gmail.com">Contact</a>
+    <button class="theme-switch" type="button" aria-label="Switch between light and dark"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+  </div>
+</header>
+
+<main id="main" class="shell guide-shell">
+  <div class="guide-intro">
+    <p class="eyebrow">User guide, version 1.6.0</p>
+    <h1>How to use Questionnaire Autopilot.</h1>
+    <p class="doc-lede">Each section below covers one task. The steps come first, followed by a short video of the same steps in the app. The videos use Examplify Inc., a fictional company whose sample files are included with the app, so you can follow along before using your own files.</p>
+    <p class="guide-note">The videos have no sound. Windows that belong to your operating system, such as the file picker, are not shown in the videos: where a file is chosen, the video shows it appearing in the app.</p>
+  </div>
+
+  <div class="guide-layout">
+    <nav class="guide-toc" aria-label="User guide sections">
+      <p class="footer-label">Getting started</p>
+      <a href="#install">Install and uninstall</a>
+      <a href="#first-run">First run and the sample company</a>
+      <a href="#appearance-and-shortcuts">Appearance and quick actions</a>
+      <p class="footer-label">Your approved answers</p>
+      <a href="#create-library">Create your answer library</a>
+      <a href="#build-library">Build your library from past questionnaires</a>
+      <a href="#library-health">Check library health</a>
+      <a href="#guard-terms">Guard terms</a>
+      <p class="footer-label">Answering questionnaires</p>
+      <a href="#answer-questionnaire">Answer a questionnaire</a>
+      <a href="#review-and-edit">Review and edit answers</a>
+      <a href="#export-final">Export the final file</a>
+      <a href="#check-before-sending">Check before sending</a>
+      <p class="footer-label">Sharing with customers</p>
+      <a href="#trust-pack">Customer trust pack</a>
+      <p class="footer-label">AI drafting</p>
+      <a href="#ai-local">AI on your computer</a>
+      <a href="#ai-cloud">AI with a cloud service</a>
+      <a href="#ai-off">Turn AI drafting off</a>
+      <p class="footer-label">More</p>
+      <a href="#command-line">Command line</a>
+      <a href="#troubleshooting">Troubleshooting</a>
+    </nav>
+
+    <div class="guide-body">
+
+      <h2 class="guide-cat">Getting started</h2>
+
+      <section class="guide-section" id="install">
+        <h3>Install and uninstall</h3>
+        <p>Your download is one ZIP named for your computer, for example <code>QuestionnaireAutopilot-1.6.0-Windows-x64.zip</code>. It contains the installer, a START HERE guide, these guides as files, the command line version and a checksum list.</p>
+        <h4>Windows 10 and 11</h4>
+        <ol class="steps">
+          <li>Open the ZIP and double-click <code>QuestionnaireAutopilot-Setup-1.6.0.exe</code>.</li>
+          <li>If Windows shows "Windows protected your PC", click <b>More info</b>, then <b>Run anyway</b>. This appears once because the installer is not yet code-signed.</li>
+          <li>Keep the suggested folder and click <b>Next</b>. The app installs for your user account only and does not need administrator rights.</li>
+          <li>Tick <b>Create a desktop shortcut</b> if you want one and click <b>Next</b>, then click <b>Install</b>.</li>
+          <li>Click <b>Finish</b>. The app opens. Later, open it from the Start menu or the desktop shortcut.</li>
+          <li>To uninstall, open <b>Settings</b>, then <b>Apps</b>, find Questionnaire Autopilot and choose <b>Uninstall</b>.</li>
+        </ol>
+        <h4>Linux</h4>
+        <ol class="steps">
+          <li>On Ubuntu, Debian and similar systems, double-click the <code>.deb</code> file and click <b>Install</b> in the Software or App Center. Uninstall it from the same place.</li>
+          <li>On other systems, right-click the <code>.AppImage</code> file, choose <b>Properties</b>, then <b>Permissions</b>, and allow it to run as a program. Double-click it to start. Delete the file to uninstall.</li>
+          <li>On Linux the app opens in your web browser. It still runs only on your computer.</li>
+        </ol>
+        <h4>macOS</h4>
+        <p>The macOS version is coming soon. Until then, Mac users can use the command line version described under <a href="#command-line">Command line</a>.</p>
+        <p class="guide-note">Your settings are kept when you uninstall. To remove them too, delete the folder <code>%APPDATA%\Questionnaire Autopilot</code> on Windows or <code>~/.config/Questionnaire Autopilot</code> on Linux.</p>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/install.jpg"><source src="assets/guide/install.mp4" type="video/mp4"></video><figcaption>Install and uninstall on Windows</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="first-run">
+        <h3>First run and the sample company</h3>
+        <p>The Start screen opens first. The menu on the left lists every task.</p>
+        <ol class="steps">
+          <li>Open Questionnaire Autopilot.</li>
+          <li>Click <b>Start with the sample company</b>. The app answers a 40 question sample questionnaire for Examplify Inc., a fictional company, using its sample library.</li>
+          <li>Wait for the run to finish. The summary shows how many questions have a proposed answer and how many need a person.</li>
+          <li>Click <b>Review answers</b> to look through the results. See <a href="#review-and-edit">Review and edit answers</a>.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/first-run.jpg"><source src="assets/guide/first-run.mp4" type="video/mp4"></video><figcaption>First run and the sample company</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="appearance-and-shortcuts">
+        <h3>Appearance and quick actions</h3>
+        <ol class="steps">
+          <li>Use the <b>Dark mode</b> switch at the bottom of the menu to change between dark and light. The app remembers your choice.</li>
+          <li>Press <kbd>Ctrl</kbd> and <kbd>K</kbd> (<kbd>Command</kbd> and <kbd>K</kbd> on a Mac), or click <b>Quick actions</b>, to open the quick action list.</li>
+          <li>Type part of a task name, for example "health", and press <kbd>Enter</kbd> to open it. Use the arrow keys to move through the list and <kbd>Esc</kbd> to close it.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/appearance-and-shortcuts.jpg"><source src="assets/guide/appearance-and-shortcuts.mp4" type="video/mp4"></video><figcaption>Appearance and quick actions</figcaption></figure>
+      </section>
+
+      <h2 class="guide-cat">Your approved answers</h2>
+
+      <section class="guide-section" id="create-library">
+        <h3>Create your answer library</h3>
+        <p>Your library is one spreadsheet of answers your team has approved. The app only ever uses these answers.</p>
+        <ol class="steps">
+          <li>On the Start screen, click <b>Create a new one</b> under Your approved answers.</li>
+          <li>The file <code>my_approved_answers.csv</code> is created in your results folder, and the folder opens.</li>
+          <li>Open the file in Excel and add one row per approved answer, using the columns below. Replace the example row.</li>
+          <li>Save the file as CSV or Excel. The Start screen now shows your library. To use a different file later, click <b>Change</b>.</li>
+        </ol>
+        <div class="table-wrap"><table class="guide-table">
+          <thead><tr><th>Column</th><th>What to enter</th></tr></thead>
+          <tbody>
+            <tr><td><code>id</code></td><td>A stable reference for the answer, for example ENC-001.</td></tr>
+            <tr><td><code>topic</code></td><td>A short topic, for example Encryption.</td></tr>
+            <tr><td><code>question</code></td><td>The question this answer responds to.</td></tr>
+            <tr><td><code>answer</code></td><td>The exact text your security owner approved.</td></tr>
+            <tr><td><code>evidence_ref</code></td><td>Where the proof is kept, for example a policy section or audit report.</td></tr>
+            <tr><td><code>approved_by</code>, <code>approved_at</code></td><td>Who approved the answer and the date, as YYYY-MM-DD.</td></tr>
+            <tr><td><code>expires_at</code></td><td>Optional. After this date the answer is no longer used.</td></tr>
+            <tr><td><code>keywords</code></td><td>Optional. Extra words that help the app find this answer.</td></tr>
+            <tr><td><code>owner</code></td><td>Optional. The person or team who keeps the answer current.</td></tr>
+            <tr><td><code>applies_to</code></td><td>Optional. The product, region or environment where the answer is true.</td></tr>
+            <tr><td><code>shareable</code></td><td>Optional. <code>yes</code> only if the answer can go in a customer trust pack. Otherwise it stays private.</td></tr>
+          </tbody>
+        </table></div>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/create-library.jpg"><source src="assets/guide/create-library.mp4" type="video/mp4"></video><figcaption>Create your answer library</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="build-library">
+        <h3>Build your library from past questionnaires</h3>
+        <p>If your team has completed questionnaires before, recover those answers instead of typing them again.</p>
+        <ol class="steps">
+          <li>Open <b>Build your library</b>.</li>
+          <li>Click the card and choose a completed questionnaire in Excel format (<code>.xlsx</code> or <code>.xlsm</code>).</li>
+          <li>Click <b>Recover answers</b>. The answers are saved to <code>approval_candidates.csv</code> in your results folder.</li>
+          <li>Open that file in Excel. For each answer you accept, set <code>decision</code> to <code>APPROVED</code> and fill in <code>approved_by</code>, <code>approved_at</code> and <code>evidence_ref</code>.</li>
+          <li>Use the file as your library. Rows that are not marked <code>APPROVED</code> are never used.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/build-library.jpg"><source src="assets/guide/build-library.mp4" type="video/mp4"></video><figcaption>Build your library from past questionnaires</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="library-health">
+        <h3>Check library health</h3>
+        <p>Check the library itself before a busy period, and whenever answers change.</p>
+        <ol class="steps">
+          <li>Open <b>Library health</b> and choose your library.</li>
+          <li>Click <b>Check library</b>.</li>
+          <li>Read the counts: active, shareable, expiring within 30 days, expired, and set aside.</li>
+          <li>Work through each note. Renew expired approvals, resolve answers that contradict each other, and fix rows that were set aside.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/library-health.jpg"><source src="assets/guide/library-health.mp4" type="video/mp4"></video><figcaption>Check library health</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="guard-terms">
+        <h3>Guard terms</h3>
+        <p>Guard terms are words your team wants treated like certifications, such as a regulation or a service level. An answer that uses one is only accepted if your approved answers support it.</p>
+        <ol class="steps">
+          <li>Create a text file named <code>guard_terms.txt</code> in the same folder as your library.</li>
+          <li>Write one term per line. Lines that start with <code>#</code> are ignored.</li>
+          <li>Open <b>Library health</b> and click <b>Check library</b>. The terms found are listed under the notes.</li>
+          <li>From now on, an answer that uses a guard term your approved answers do not support is marked <b>At risk</b>, in review and in the check before sending.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/guard-terms.jpg"><source src="assets/guide/guard-terms.mp4" type="video/mp4"></video><figcaption>Guard terms</figcaption></figure>
+      </section>
+
+      <h2 class="guide-cat">Answering questionnaires</h2>
+
+      <section class="guide-section" id="answer-questionnaire">
+        <h3>Answer a questionnaire</h3>
+        <ol class="steps">
+          <li>Open <b>Answer a questionnaire</b>.</li>
+          <li>Click the first card and choose the buyer's questionnaire, in Excel or CSV format, exactly as they sent it. It needs a column named like Question, Requirement or Control.</li>
+          <li>Click the second card and choose your approved answers.</li>
+          <li>Check <b>Save results in</b>. Click <b>Change</b> to choose another folder.</li>
+          <li>Click <b>Answer questionnaire</b> and wait for the run to finish.</li>
+          <li>Click <b>Open report</b> to see every question with its status and evidence, or <b>Review answers</b> to work through them in the app.</li>
+        </ol>
+        <p>Each question receives one status:</p>
+        <div class="table-wrap"><table class="guide-table">
+          <thead><tr><th>Status</th><th>Meaning</th><th>What to do</th></tr></thead>
+          <tbody>
+            <tr><td>Matched</td><td>Your approved answer, copied word for word.</td><td>Check that it fits the buyer's wording.</td></tr>
+            <tr><td>Drafted</td><td>Written by the AI model from approved evidence and checked. Only with AI drafting on.</td><td>Read it against the cited evidence.</td></tr>
+            <tr><td>Suggested</td><td>Related approved answers were found, but no draft was written.</td><td>Pick or combine the suggested answers.</td></tr>
+            <tr><td>Needs evidence</td><td>No approved answer covers the question. Nothing was made up.</td><td>Ask the owner for an approved answer and add it to your library.</td></tr>
+            <tr><td>Legal review</td><td>A contract, liability or legal question. Never drafted.</td><td>Send it to whoever owns contracts.</td></tr>
+            <tr><td>Flagged</td><td>The cell contains instructions or a formula, so it was not processed.</td><td>Read the cell yourself and answer it.</td></tr>
+            <tr><td>Draft blocked</td><td>An AI draft claimed more than the evidence says, so it was discarded.</td><td>Write the answer from the listed evidence.</td></tr>
+          </tbody>
+        </table></div>
+        <p>The results folder contains a filled copy of the buyer's workbook (the original is never changed), the review report, a review queue and a list of missing evidence.</p>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/answer-questionnaire.jpg"><source src="assets/guide/answer-questionnaire.mp4" type="video/mp4"></video><figcaption>Answer a questionnaire</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="review-and-edit">
+        <h3>Review and edit answers</h3>
+        <ol class="steps">
+          <li>Open <b>Review and edit</b>, or click <b>Review answers</b> after a run.</li>
+          <li>Use the filters (All, Needs a person, Drafted, Matched, Edited) or type in the search box to find questions.</li>
+          <li>Select a question. Its answer appears beside the approved evidence it comes from.</li>
+          <li>Edit the answer. The verdict under it updates as you type.</li>
+          <li>Use <b>Use approved wording</b> to put back the approved text, <b>Clear</b> to empty the answer, or <b>Revert to original</b> to undo your edits.</li>
+        </ol>
+        <div class="table-wrap"><table class="guide-table">
+          <thead><tr><th>Verdict</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td>Approved wording</td><td>Exactly your approved answer.</td></tr>
+            <tr><td>Consistent</td><td>Edited wording that stays within your approved evidence.</td></tr>
+            <tr><td>Not in library</td><td>Nothing in your library covers the answer, so it cannot be checked.</td></tr>
+            <tr><td>Legal to confirm</td><td>A legal or contractual question has an answer. Confirm counsel approved it.</td></tr>
+            <tr><td>At risk</td><td>The answer claims something your approved answers do not support.</td></tr>
+            <tr><td>Unanswered</td><td>No answer has been entered yet.</td></tr>
+          </tbody>
+        </table></div>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/review-and-edit.jpg"><source src="assets/guide/review-and-edit.mp4" type="video/mp4"></video><figcaption>Review and edit answers</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="export-final">
+        <h3>Export the final file</h3>
+        <ol class="steps">
+          <li>In <b>Review and edit</b>, click <b>Export final file</b>.</li>
+          <li>The app writes <code>final_answers.csv</code> in a folder named <code>final</code>. For an Excel questionnaire it also writes <code>final_questionnaire.xlsx</code>, a copy of the buyer's workbook with your final answers. The buyer's original file is never changed.</li>
+          <li>Every answer is checked once more. The result says whether the file is ready to send and lists anything to fix.</li>
+          <li>Send the final file to the buyer yourself. The app never sends anything.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/export-final.jpg"><source src="assets/guide/export-final.mp4" type="video/mp4"></video><figcaption>Export the final file</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="check-before-sending">
+        <h3>Check before sending</h3>
+        <p>Use this for a final file that was edited outside the app, for example by colleagues in Excel.</p>
+        <ol class="steps">
+          <li>Open <b>Check before sending</b>.</li>
+          <li>Choose the final questionnaire and your approved answers.</li>
+          <li>Click <b>Run the check</b>.</li>
+          <li>Fix every answer marked <b>At risk</b>, then run the check again until the file is ready to send.</li>
+          <li>Click <b>Open pre-send report</b> to keep a record of the check with the questionnaire. New wording your team wrote is saved to <code>library_candidates.csv</code>, ready to approve into your library.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/check-before-sending.jpg"><source src="assets/guide/check-before-sending.mp4" type="video/mp4"></video><figcaption>Check before sending</figcaption></figure>
+      </section>
+
+      <h2 class="guide-cat">Sharing with customers</h2>
+
+      <section class="guide-section" id="trust-pack">
+        <h3>Customer trust pack</h3>
+        <p>A trust pack is a security overview page for customers, built only from answers you mark as shareable.</p>
+        <ol class="steps">
+          <li>In your library, set <code>shareable</code> to <code>yes</code> for each answer that is safe to share.</li>
+          <li>Open <b>Customer trust pack</b>, choose your library and enter your company name as customers know it.</li>
+          <li>Click <b>Build trust pack</b>. Private and expired answers are left out automatically.</li>
+          <li>Click <b>Open trust pack</b> and read it before sending it. The page works offline and makes no network requests.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/trust-pack.jpg"><source src="assets/guide/trust-pack.mp4" type="video/mp4"></video><figcaption>Customer trust pack</figcaption></figure>
+      </section>
+
+      <h2 class="guide-cat">AI drafting</h2>
+      <p class="guide-cat-lede">AI drafting is optional. Without it, answers come only from your library. With it, questions that only partly match your library get a drafted answer, written from the approved answers it cites. Every draft is checked against those answers before you see it, and a draft that claims more is discarded.</p>
+
+      <section class="guide-section" id="ai-local">
+        <h3>AI on your computer</h3>
+        <p>A model on your own computer keeps every question on that computer. You can use llama.cpp, Ollama or LM Studio.</p>
+        <ol class="steps">
+          <li>Start the model server. For example: <code>ollama run llama3.2</code> for Ollama, the local server in LM Studio, or <code>llama-server -m your-model.gguf --host 127.0.0.1 --port 8089 -c 8192</code> for llama.cpp.</li>
+          <li>In the app, open <b>AI drafting</b> and choose the matching card under On this computer.</li>
+          <li>Check the <b>Address</b> of the server. Enter the model name, or click <b>Load list</b> and choose one.</li>
+          <li>Click <b>Test connection</b>. The model answers one test question.</li>
+          <li>Click <b>Use this model</b>. Your next questionnaire is answered with drafting on.</li>
+        </ol>
+        <p class="guide-note">Drafting speed depends on your computer. While the model writes, the video plays at five times normal speed and says so on screen.</p>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/ai-local.jpg"><source src="assets/guide/ai-local.mp4" type="video/mp4"></video><figcaption>AI on your computer</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="ai-cloud">
+        <h3>AI with a cloud service</h3>
+        <p>You can use your own key for OpenAI, Anthropic, Google Gemini, Mistral, Groq, OpenRouter or another OpenAI-compatible service. Only the question and up to three matching approved answers are sent, and only after you allow it.</p>
+        <ol class="steps">
+          <li>Open <b>AI drafting</b> and choose the service under Cloud services.</li>
+          <li>Paste your API key and click <b>Save key</b>. The key is stored on this computer only, encrypted with your Windows account on Windows. You can also set it in an environment variable, such as <code>ANTHROPIC_API_KEY</code>.</li>
+          <li>Enter the model name, or click <b>Load list</b> and choose one.</li>
+          <li>Tick the box that allows sending questions and matching approved answers to that service.</li>
+          <li>Click <b>Test connection</b>, then <b>Use this model</b>.</li>
+          <li>To remove a saved key, click <b>Forget saved key</b>.</li>
+        </ol>
+        <p class="guide-note">No key is entered in this video, and nothing is sent.</p>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/ai-cloud.jpg"><source src="assets/guide/ai-cloud.mp4" type="video/mp4"></video><figcaption>AI with a cloud service</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="ai-off">
+        <h3>Turn AI drafting off</h3>
+        <ol class="steps">
+          <li>Open <b>AI drafting</b>. <b>In use now</b> shows the model that drafts answers.</li>
+          <li>Click <b>Turn off AI</b>. From now on, answers come only from your approved library.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/ai-off.jpg"><source src="assets/guide/ai-off.mp4" type="video/mp4"></video><figcaption>Turn AI drafting off</figcaption></figure>
+      </section>
+
+      <h2 class="guide-cat">More</h2>
+
+      <section class="guide-section" id="command-line">
+        <h3>Command line</h3>
+        <p>Every task is also available as a command, for scripts and scheduled jobs. Open a terminal in the <code>Command line (Python source)</code> folder of your download. Python 3.10 or newer is required. On Windows, use <code>py</code> in place of <code>python</code> if needed.</p>
+        <ol class="steps">
+          <li>Install Python 3.10 or newer if it is not already installed.</li>
+          <li>Open a terminal in the <code>Command line (Python source)</code> folder of your download.</li>
+          <li>Run <code>python -m sqautopilot self-test</code> to confirm everything works.</li>
+          <li>Run the command for the task you need, from the table below. Each command writes its results to the folder given after <code>--out</code>.</li>
+        </ol>
+        <div class="table-wrap"><table class="guide-table">
+          <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td><code>python -m sqautopilot self-test</code></td><td>Runs the 22 built-in checks.</td></tr>
+            <tr><td><code>python -m sqautopilot demo</code></td><td>Runs the fictional sample company.</td></tr>
+            <tr><td><code>python -m sqautopilot init-library my_answers.csv</code></td><td>Creates a library from the template.</td></tr>
+            <tr><td><code>python -m sqautopilot check-library my_answers.csv</code></td><td>Checks library health.</td></tr>
+            <tr><td><code>python -m sqautopilot import-history done.xlsx --out approval_candidates.csv</code></td><td>Recovers answers from a completed questionnaire.</td></tr>
+            <tr><td><code>python -m sqautopilot run incoming.xlsx --library my_answers.csv --out out/acme</code></td><td>Answers a questionnaire. Add <code>--provider</code> and <code>--model</code> for AI drafting, and <code>--allow-cloud</code> for a cloud service.</td></tr>
+            <tr><td><code>python -m sqautopilot check-final final.xlsx --library my_answers.csv --out out/check</code></td><td>Checks the final file. Exits with code 3 while anything is at risk.</td></tr>
+            <tr><td><code>python -m sqautopilot build-trust-pack --library my_answers.csv --company "Your Company" --out trust-pack</code></td><td>Builds a customer trust pack.</td></tr>
+            <tr><td><code>python -m sqautopilot app</code></td><td>Opens the app in your browser.</td></tr>
+          </tbody>
+        </table></div>
+        <p class="guide-note">The video shows these commands with the output they printed when run on the sample files.</p>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/command-line.jpg"><source src="assets/guide/command-line.mp4" type="video/mp4"></video><figcaption>Command line</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="troubleshooting">
+        <h3>Troubleshooting</h3>
+        <ol class="steps">
+          <li><b>The app shows "Part of the app was blocked from loading".</b> An ad blocker or web filter, such as AdGuard, is filtering the app's local connection. In that program, allow <code>127.0.0.1</code> or add Questionnaire Autopilot to its exclusions, then reopen the app.</li>
+          <li><b>Windows shows "Windows protected your PC".</b> Click <b>More info</b>, then <b>Run anyway</b>. This appears once.</li>
+          <li><b>The AppImage does not start on Linux.</b> Install the <code>libfuse2</code> package (<code>libfuse2t64</code> on Ubuntu 24.04 and later), or use the <code>.deb</code> file.</li>
+          <li><b>Test connection fails for a local model.</b> Make sure the model server is running and that the address in the app matches its port.</li>
+          <li><b>A question you expected to match is Needs evidence.</b> Add the buyer's wording to the <code>keywords</code> column of the matching library row, or add a new approved answer.</li>
+          <li><b>Anything else.</b> Email <a class="contact" href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a> with your operating system and what you saw. If we cannot make the app work on your computer, you get a refund within 14 days of purchase.</li>
+        </ol>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/troubleshooting.jpg"><source src="assets/guide/troubleshooting.mp4" type="video/mp4"></video><figcaption>Troubleshooting: blocked by an ad blocker</figcaption></figure>
+      </section>
+
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div><a class="brand footer-brand" href="./"><img src="assets/icon.png" alt="" width="32" height="32"><span>PrautoForge</span></a><p>Practical software for careful work.</p></div>
+    <div><p class="footer-label">Product</p><a href="./">Questionnaire Autopilot</a><a href="user-guide.html">User guide</a><a href="guides/">Articles</a></div>
+    <div><p class="footer-label">Legal</p><a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="mailto:contactprautof@gmail.com">Contact</a></div>
+    <p class="copyright">© 2026 PrautoForge.</p>
+  </div>
+</footer>
+</body>
+</html>
