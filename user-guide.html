@@ -24,7 +24,7 @@
 
 <main id="main" class="shell guide-shell">
   <div class="guide-intro">
-    <p class="eyebrow">User guide, version 1.6.0</p>
+    <p class="eyebrow">User guide, version 1.7.0</p>
     <h1>How to use Questionnaire Autopilot.</h1>
     <p class="doc-lede">Each section below covers one task. The steps come first, followed by a short video of the same steps in the app. The videos use Examplify Inc., a fictional company whose sample files are included with the app, so you can follow along before using your own files.</p>
     <p class="guide-note">The videos have no sound. Windows that belong to your operating system, such as the file picker, are not shown in the videos: where a file is chosen, the video shows it appearing in the app.</p>
@@ -41,6 +41,7 @@
       <a href="#build-library">Build your library from past questionnaires</a>
       <a href="#library-health">Check library health</a>
       <a href="#guard-terms">Guard terms</a>
+      <a href="#library-atlas">The library atlas</a>
       <p class="footer-label">Answering questionnaires</p>
       <a href="#answer-questionnaire">Answer a questionnaire</a>
       <a href="#review-and-edit">Review and edit answers</a>
@@ -48,10 +49,11 @@
       <a href="#check-before-sending">Check before sending</a>
       <p class="footer-label">Sharing with customers</p>
       <a href="#trust-pack">Customer trust pack</a>
-      <p class="footer-label">AI drafting</p>
+      <p class="footer-label">Intellinaire</p>
       <a href="#ai-local">AI on your computer</a>
       <a href="#ai-cloud">AI with a cloud service</a>
       <a href="#ai-off">Turn AI drafting off</a>
+      <a href="#intellinaire">Intellinaire, the assistant</a>
       <p class="footer-label">More</p>
       <a href="#command-line">Command line</a>
       <a href="#troubleshooting">Troubleshooting</a>
@@ -63,10 +65,10 @@
 
       <section class="guide-section" id="install">
         <h3>Install and uninstall</h3>
-        <p>Your download is one ZIP named for your computer, for example <code>QuestionnaireAutopilot-1.6.0-Windows-x64.zip</code>. It contains the installer, a START HERE guide, these guides as files, the command line version and a checksum list.</p>
+        <p>Your download is one ZIP named for your computer, for example <code>QuestionnaireAutopilot-1.7.0-Windows-x64.zip</code>. It contains the installer, a START HERE guide, these guides as files, the command line version and a checksum list.</p>
         <h4>Windows 10 and 11</h4>
         <ol class="steps">
-          <li>Open the ZIP and double-click <code>QuestionnaireAutopilot-Setup-1.6.0.exe</code>.</li>
+          <li>Open the ZIP and double-click <code>QuestionnaireAutopilot-Setup-1.7.0.exe</code>.</li>
           <li>If Windows shows "Windows protected your PC", click <b>More info</b>, then <b>Run anyway</b>. This appears once because the installer is not yet code-signed.</li>
           <li>Keep the suggested folder and click <b>Next</b>. The app installs for your user account only and does not need administrator rights.</li>
           <li>Tick <b>Create a desktop shortcut</b> if you want one and click <b>Next</b>, then click <b>Install</b>.</li>
@@ -174,6 +176,21 @@
         <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/guard-terms.jpg"><source src="assets/guide/guard-terms.mp4" type="video/mp4"></video><figcaption>Guard terms</figcaption></figure>
       </section>
 
+      <section class="guide-section" id="library-atlas">
+        <h3>The library atlas</h3>
+        <p>The Start screen shows your approved answers as an atlas. Each point is one answer, and answers on the same topic sit together in a band with the topic name beside it.</p>
+        <ol class="steps">
+          <li>Drag the atlas to turn it.</li>
+          <li>Point at an answer to see its question. Click it to open a card with the full answer, its evidence reference, who approved it and when, its expiry date, whether it is shareable, and how many questions in the last run used it.</li>
+          <li>Click <b>Ask Intellinaire</b> on the card to open the chat with a question about that answer. See <a href="#intellinaire">Intellinaire, the assistant</a>.</li>
+          <li>Click a topic below the atlas to show only its answers. Click it again to show all.</li>
+          <li>Type in <b>Find an answer</b> to highlight every answer that contains the text.</li>
+          <li>Use the <b>+</b> and <b>&minus;</b> buttons to zoom, or hold <kbd>Ctrl</kbd> and scroll. The last button resets the view.</li>
+        </ol>
+        <p>Expired answers are drawn as rings and answers set aside are drawn smaller and grey. During a run, each question travels to the answers it used, in the colour of its result.</p>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/library-atlas.jpg"><source src="assets/guide/library-atlas.mp4" type="video/mp4"></video><figcaption>The library atlas</figcaption></figure>
+      </section>
+
       <h2 class="guide-cat">Answering questionnaires</h2>
 
       <section class="guide-section" id="answer-questionnaire">
@@ -264,7 +281,7 @@
         <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/trust-pack.jpg"><source src="assets/guide/trust-pack.mp4" type="video/mp4"></video><figcaption>Customer trust pack</figcaption></figure>
       </section>
 
-      <h2 class="guide-cat">AI drafting</h2>
+      <h2 class="guide-cat">Intellinaire</h2>
       <p class="guide-cat-lede">AI drafting is optional. Without it, answers come only from your library. With it, questions that only partly match your library get a drafted answer, written from the approved answers it cites. Every draft is checked against those answers before you see it, and a draft that claims more is discarded.</p>
 
       <section class="guide-section" id="ai-local">
@@ -303,6 +320,49 @@
           <li>Click <b>Turn off AI</b>. From now on, answers come only from your approved library.</li>
         </ol>
         <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/ai-off.jpg"><source src="assets/guide/ai-off.mp4" type="video/mp4"></video><figcaption>Turn AI drafting off</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="intellinaire">
+        <h3>Intellinaire, the assistant</h3>
+        <p>Intellinaire is the assistant built into the app. It answers questions about the app and your work, prepares changes for you to approve, and helps with anything else, such as writing, analysis or code. It uses the model you set up on the AI drafting page, on your computer or in the cloud.</p>
+        <ol class="steps">
+          <li>Set up a model on the <b>AI drafting</b> page. See <a href="#ai-local">AI on your computer</a> or <a href="#ai-cloud">AI with a cloud service</a>.</li>
+          <li>Open <b>Chat</b> under Intellinaire in the menu, or click <b>Ask Intellinaire</b> at the bottom right of any page. You can also press <kbd>Ctrl</kbd>, <kbd>Shift</kbd> and <kbd>I</kbd>.</li>
+          <li>Type a question in the message box and press <kbd>Enter</kbd>. Press <kbd>Shift</kbd> and <kbd>Enter</kbd> for a new line.</li>
+          <li>Each step Intellinaire takes, such as reading the review list or searching your library, is listed above its reply. Click a step to see what it read.</li>
+          <li>Ask a follow-up question in the same conversation. Intellinaire keeps the context of the whole conversation.</li>
+          <li>To stop a reply, click the red stop button. Point at a reply to copy it or have it written again. Point at your own message to edit it and send it again.</li>
+        </ol>
+        <p>Intellinaire knows which page you came from and which question you had selected on the Review page, so a question such as "Improve this answer" refers to that question.</p>
+        <p>The circle next to the model name shows how much of the model's memory the conversation uses. When it fills up, older messages are summarised automatically, so long conversations keep their context.</p>
+        <h4>Changes and approvals</h4>
+        <p>Intellinaire can prepare these changes: a new answer for a question in the review, a new or updated answer in your library, guard terms, settings such as the company name or appearance, and tasks such as running the sample company or building the trust pack. It never makes a change by itself.</p>
+        <ol class="steps">
+          <li>Ask for the change, for example "Improve the answer to Q12 using only approved evidence" or "Add Salesforce to the guard terms".</li>
+          <li>A <b>Proposed change</b> card appears in the reply. For an answer, it shows the new wording marked against the current answer and the claim guard's verdict.</li>
+          <li>Click <b>Approve</b> to apply the change, or <b>Reject</b> to leave everything as it is.</li>
+          <li>The card then shows what was done. For an answer edit, export the final file from the Review page to write it to the buyer's file.</li>
+        </ol>
+        <p class="guide-note">Library changes work with CSV libraries. Before a library file is changed, the previous version is saved beside it with the date and time in its name.</p>
+        <h4>Files, images and web search</h4>
+        <ol class="steps">
+          <li>To attach a file, click the paperclip button, drag the file onto the chat, or paste it. Excel, Word, PDF, CSV, text and code files up to 8 MB can be attached.</li>
+          <li>To attach an image, click the picture button, drag it in, or paste a screenshot. Models that accept images can read it.</li>
+          <li>To let Intellinaire search the web for one message, click <b>Search the web</b> before you send. Sources it used are listed under the reply. Click one to open it in your browser.</li>
+          <li>For full web results, open <b>Chat settings</b> (the button at the top right of the chat) and add a Brave Search or Tavily API key. Without a key, a basic search is used. Claude models use their own web search.</li>
+        </ol>
+        <p class="guide-note">With a cloud model, the app asks once for your permission before the first message. Your messages, attached files and the app details Intellinaire reads are then sent to that service. You can withdraw the permission in Chat settings. API keys are never sent to a model.</p>
+        <h4>Manage conversations</h4>
+        <ol class="steps">
+          <li>Click <b>New chat</b> at the top of the conversation list, or press <kbd>Ctrl</kbd>, <kbd>Shift</kbd> and <kbd>O</kbd>.</li>
+          <li>Conversations are grouped by date: Today, Yesterday, Previous 7 days, Previous 30 days and Older. The date and time of the last message is shown under each title.</li>
+          <li>Type in <b>Search conversations</b> to find one by its title or last message.</li>
+          <li>Point at a conversation and click the three dots to <b>Rename</b> it, <b>Pin</b> it to the top, <b>Copy as Markdown</b>, or <b>Delete</b> it. Delete asks you to confirm.</li>
+          <li>To use a different model for one conversation, click the model name at the top right and choose another. Models are set up on the AI drafting page.</li>
+        </ol>
+        <p class="guide-note">Conversations and attached files are stored on your computer only, in the <code>chats</code> folder inside the settings folder.</p>
+        <p class="guide-note">While the model writes, the video plays at five times normal speed and says so on screen.</p>
+        <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/intellinaire-chat.jpg"><source src="assets/guide/intellinaire-chat.mp4" type="video/mp4"></video><figcaption>Intellinaire, the assistant</figcaption></figure>
       </section>
 
       <h2 class="guide-cat">More</h2>

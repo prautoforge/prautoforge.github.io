@@ -175,5 +175,34 @@
     ],
     "sped_up": false,
     "note": "Installer screens; the install folder path is pixelated because it contains the Windows user name."
+  },
+  "intellinaire-chat": {
+    "title": "Intellinaire, the assistant",
+    "seconds": 49.8,
+    "captions": [
+      "Intellinaire is the assistant under Intellinaire in the menu. It uses the model set up on the AI drafting page.",
+      "Ask a question about your work. It reads the last run, your review and your library to answer.",
+      "Each step it takes is listed as it happens. The reply is written as it streams in.",
+      "To change something, ask for it. Intellinaire prepares the change and checks it with the claim guard.",
+      "The proposal shows the new wording, marked against the current answer, with the claim guard's verdict. Nothing has changed yet.",
+      "Approve applies the change. Reject leaves everything as it was.",
+      "Attach files or images with these buttons, by dragging them onto the chat, or by pasting.",
+      "Search the web lets it look online for this message only. Turn it on before you send.",
+      "Every conversation is kept on this computer. The menu beside it renames, pins, copies or deletes it."
+    ],
+    "sped_up": true
+  },
+  "library-atlas": {
+    "title": "The library atlas",
+    "seconds": 34.9,
+    "captions": [
+      "The Start screen shows your approved answers as an atlas. Each point is one answer, grouped by topic.",
+      "Point at an answer to see its question. Click it to read the answer, its evidence, approver and expiry.",
+      "Ask Intellinaire opens the chat with a question about that answer.",
+      "Click a topic to show only its answers. Click it again to show all.",
+      "Find an answer searches every question and answer. Hold Ctrl and scroll, or use the buttons, to zoom.",
+      "During a run, each question travels to the answers it used, in the colour of its result."
+    ],
+    "sped_up": false
   }
 }
