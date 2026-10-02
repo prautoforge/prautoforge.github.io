@@ -146,7 +146,7 @@
   },
   "command-line": {
     "title": "Command line",
-    "seconds": 34.4,
+    "seconds": 32.0,
     "captions": [
       "Every task is also available from the command line, for scripts and scheduled jobs."
     ],

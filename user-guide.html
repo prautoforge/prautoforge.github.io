@@ -26,6 +26,7 @@
     <nav class="guide-toc" aria-label="User guide sections">
       <p class="footer-label">Getting started</p>
       <a href="#install">Install and uninstall</a>
+      <a href="#activate">Activate your license</a>
       <a href="#first-run">First run and the sample company</a>
       <a href="#appearance-and-shortcuts">Appearance and quick actions</a>
       <p class="footer-label">Your approved answers</p>
@@ -74,9 +75,27 @@
           <li>On Linux the app opens in your web browser. It still runs only on your computer.</li>
         </ol>
         <h4>macOS</h4>
-        <p>The macOS version is coming soon. Until then, Mac users can use the command line version described under <a href="#command-line">Command line</a>.</p>
+        <p>The macOS version is coming soon.</p>
         <p class="guide-note">Your settings are kept when you uninstall. To remove them too, delete the folder <code>%APPDATA%\Questionnaire Autopilot</code> on Windows or <code>~/.config/Questionnaire Autopilot</code> on Linux.</p>
         <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/install.jpg"><source src="assets/guide/install.mp4" type="video/mp4"></video><figcaption>Install and uninstall on Windows</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="activate">
+        <h3>Activate your license</h3>
+        <p>The first time the app opens, it asks for your license key. The key is in your purchase receipt email and on the My Orders page of Lemon Squeezy, under your order. One key activates up to three computers.</p>
+        <ol class="steps">
+          <li>Copy the license key from the receipt.</li>
+          <li>Paste it into <b>License key</b> and click <b>Activate</b>. The computer must be online for this step.</li>
+          <li>The app opens on the Start screen. The bottom of the menu shows the version and a <b>License</b> link.</li>
+        </ol>
+        <p>Activation sends only the license key and a label for the computer, such as “Windows computer 3F2A9C”, to Lemon Squeezy. Your questionnaires, library and files are never sent. While the computer is online, the app confirms the license at most once a week. Without internet, it keeps working for 30 days after the last confirmation.</p>
+        <h4>Move the license to another computer</h4>
+        <ol class="steps">
+          <li>On the old computer, click <b>License</b> at the bottom of the menu.</li>
+          <li>Click <b>Deactivate this computer</b>, then click it again to confirm.</li>
+          <li>Activate the new computer with the same key.</li>
+        </ol>
+        <p class="guide-note">If a computer was replaced or lost before you could deactivate it, email <a class="contact" href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a> with your order number. For computers without internet access, the email can ask for an offline license file: include the computer code shown under <b>This computer has no internet access</b> on the activation screen.</p>
       </section>
 
       <section class="guide-section" id="first-run">
@@ -361,25 +380,24 @@
 
       <section class="guide-section" id="command-line">
         <h3>Command line</h3>
-        <p>Every task is also available as a command, for scripts and scheduled jobs. Open a terminal in the <code>Command line (Python source)</code> folder of your download. Python 3.10 or newer is required. On Windows, use <code>py</code> in place of <code>python</code> if needed.</p>
+        <p>Every task is also available as a command, for scripts and scheduled jobs. The command line is part of the installed app and uses the same license, so activate the app first.</p>
         <ol class="steps">
-          <li>Install Python 3.10 or newer if it is not already installed.</li>
-          <li>Open a terminal in the <code>Command line (Python source)</code> folder of your download.</li>
-          <li>Run <code>python -m sqautopilot self-test</code> to confirm everything works.</li>
+          <li>Open a terminal. On Windows, open a new Command Prompt or PowerShell window after installing; the installer adds <code>qa</code> to your path.</li>
+          <li>Run <code>qa self-test</code> to confirm everything works. On Linux, use <code>questionnaire-autopilot</code> in place of <code>qa</code> after installing the <code>.deb</code>, or the path of the AppImage file.</li>
           <li>Run the command for the task you need, from the table below. Each command writes its results to the folder given after <code>--out</code>.</li>
         </ol>
         <div class="table-wrap"><table class="guide-table">
           <thead><tr><th>Command</th><th>What it does</th></tr></thead>
           <tbody>
-            <tr><td><code>python -m sqautopilot self-test</code></td><td>Runs the 22 built-in checks.</td></tr>
-            <tr><td><code>python -m sqautopilot demo</code></td><td>Runs the fictional sample company.</td></tr>
-            <tr><td><code>python -m sqautopilot init-library my_answers.csv</code></td><td>Creates a library from the template.</td></tr>
-            <tr><td><code>python -m sqautopilot check-library my_answers.csv</code></td><td>Checks library health.</td></tr>
-            <tr><td><code>python -m sqautopilot import-history done.xlsx --out approval_candidates.csv</code></td><td>Recovers answers from a completed questionnaire.</td></tr>
-            <tr><td><code>python -m sqautopilot run incoming.xlsx --library my_answers.csv --out out/acme</code></td><td>Answers a questionnaire. Add <code>--provider</code> and <code>--model</code> for AI drafting, and <code>--allow-cloud</code> for a cloud service.</td></tr>
-            <tr><td><code>python -m sqautopilot check-final final.xlsx --library my_answers.csv --out out/check</code></td><td>Checks the final file. Exits with code 3 while anything is at risk.</td></tr>
-            <tr><td><code>python -m sqautopilot build-trust-pack --library my_answers.csv --company "Your Company" --out trust-pack</code></td><td>Builds a customer trust pack.</td></tr>
-            <tr><td><code>python -m sqautopilot app</code></td><td>Opens the app in your browser.</td></tr>
+            <tr><td><code>qa self-test</code></td><td>Runs the 22 built-in checks.</td></tr>
+            <tr><td><code>qa demo</code></td><td>Runs the fictional sample company.</td></tr>
+            <tr><td><code>qa init-library my_answers.csv</code></td><td>Creates a library from the template.</td></tr>
+            <tr><td><code>qa check-library my_answers.csv</code></td><td>Checks library health.</td></tr>
+            <tr><td><code>qa import-history done.xlsx --out approval_candidates.csv</code></td><td>Recovers answers from a completed questionnaire.</td></tr>
+            <tr><td><code>qa run incoming.xlsx --library my_answers.csv --out out/acme</code></td><td>Answers a questionnaire. Add <code>--provider</code> and <code>--model</code> for AI drafting, and <code>--allow-cloud</code> for a cloud service.</td></tr>
+            <tr><td><code>qa check-final final.xlsx --library my_answers.csv --out out/check</code></td><td>Checks the final file. Exits with code 3 while anything is at risk.</td></tr>
+            <tr><td><code>qa build-trust-pack --library my_answers.csv --company "Your Company" --out trust-pack</code></td><td>Builds a customer trust pack.</td></tr>
+            <tr><td><code>qa license status</code></td><td>Shows the license of this computer. <code>qa license activate KEY</code> activates it, <code>qa license deactivate</code> releases it.</td></tr>
           </tbody>
         </table></div>
         <p class="guide-note">The video shows these commands with the output they printed when run on the sample files.</p>
@@ -392,6 +410,8 @@
           <li><b>The app shows "Part of the app was blocked from loading".</b> An ad blocker or web filter, such as AdGuard, is filtering the app's local connection. In that program, allow <code>127.0.0.1</code> or add Questionnaire Autopilot to its exclusions, then reopen the app.</li>
           <li><b>Windows shows "Windows protected your PC".</b> Click <b>More info</b>, then <b>Run anyway</b>. This appears once.</li>
           <li><b>The AppImage does not start on Linux.</b> Install the <code>libfuse2</code> package (<code>libfuse2t64</code> on Ubuntu 24.04 and later), or use the <code>.deb</code> file.</li>
+          <li><b>Activation says the key is already active on three computers.</b> Deactivate one of them under <b>License</b>, or email <a class="contact" href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a> if that computer is no longer available.</li>
+          <li><b>The app asks to confirm the license.</b> It has not reached the license service for 30 days, or the computer's date was changed. Connect to the internet, open <b>License</b> and click <b>Check now</b>.</li>
           <li><b>Test connection fails for a local model.</b> Make sure the model server is running and that the address in the app matches its port.</li>
           <li><b>A question you expected to match is Needs evidence.</b> Add the buyer's wording to the <code>keywords</code> column of the matching library row, or add a new approved answer.</li>
           <li><b>Anything else.</b> Email <a class="contact" href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a> with your operating system and what you saw. If we cannot make the app work on your computer, you get a refund within 14 days of purchase.</li>
