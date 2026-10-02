@@ -22,9 +22,9 @@
   }
   var own = detect();
   radios.forEach(function (r) {
-    if (r.value === own) r.checked = true;
+    if (!r.disabled && r.value === own) r.checked = true;
     r.addEventListener("change", function () { if (r.checked) apply(r); });
   });
-  var picked = document.querySelector('.platforms input[name="platform"]:checked');
+  var picked = document.querySelector('.platforms input[name="platform"]:checked:not(:disabled)');
   if (picked) apply(picked);
 })();
