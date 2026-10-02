@@ -141,6 +141,14 @@ figcaption { font-size: .76rem; color: var(--muted); line-height: 1.6; padding-b
 .footer-grid > div > a:not(.brand) { font-size: .86rem; padding-block: 4px; overflow-wrap: anywhere; }
 .footer-grid > div:first-child p { font-size: .86rem; color: var(--muted); }
 .copyright { font-size: .74rem; }
+/* Article call to action, 404 and article tables in the shared design */
+.article-cta { margin-top: 56px; padding: 28px 30px; border: 1px solid var(--rule); border-radius: 8px; background: var(--paper-2); display: grid; gap: 14px; justify-items: start; }
+.doc-shell .article-cta p { margin: 0; color: var(--muted); }
+.article-cta strong { color: var(--heading); }
+.article-cta .eyebrow { margin: 0; }
+.error-page > div { display: grid; gap: 18px; justify-items: start; }
+.error-page .doc-lede { margin: 0; color: var(--muted); }
+.article table { display: table; width: 100%; }
 @media (max-width: 1050px) {
   .nav-shell { gap: 18px; } .main-nav { gap: 18px; }
   .product-hero, .feature-layout, .fit-section, .purchase-section, .detail-row, .pricing-layout { gap: 40px; }
@@ -181,6 +189,8 @@ figcaption { font-size: .76rem; color: var(--muted); line-height: 1.6; padding-b
   .next-page { align-items: start; flex-direction: column; padding: 24px; }
 }
 @media (max-width: 420px) {
+  .article table { display: block; overflow-x: auto; }
+  .footer-grid > div:nth-child(3) { grid-column: 1 / -1; }
   .shell { width: calc(100% - 32px); }
   .nav-shell { gap: 9px; } .brand { gap: 8px; font-size: .88rem; } .brand img { width: 28px; height: 28px; }
   .nav-cta { display: none; } .nav-toggle { padding-inline: 10px; }
