@@ -126,7 +126,7 @@
   },
   "ai-local": {
     "title": "AI on your computer",
-    "seconds": 49.1,
+    "seconds": 39.9,
     "captions": [
       "To keep everything on your computer, run a model with llama.cpp, Ollama or LM Studio and choose it here.",
       "Enter the address of the model server and the model name, then click Test connection.",
@@ -146,7 +146,7 @@
   },
   "command-line": {
     "title": "Command line",
-    "seconds": 34.3,
+    "seconds": 34.4,
     "captions": [
       "Every task is also available from the command line, for scripts and scheduled jobs."
     ],
@@ -163,7 +163,7 @@
   },
   "install": {
     "title": "Install and uninstall on Windows",
-    "seconds": 33.4,
+    "seconds": 33.3,
     "captions": [
       "Open the installer. Keep the suggested folder, which installs the app for your user account only, and click Next.",
       "Tick Create a desktop shortcut if you want one, then click Next.",
@@ -174,11 +174,11 @@
       "The app is removed. Your settings stay until you delete their folder."
     ],
     "sped_up": false,
-    "note": "Installer screens; the install folder path is pixelated because it contains the Windows user name."
+    "note": "Installer screens. The install folder path is pixelated because it contains the Windows user name."
   },
   "intellinaire-chat": {
     "title": "Intellinaire, the assistant",
-    "seconds": 49.8,
+    "seconds": 62.4,
     "captions": [
       "Intellinaire is the assistant under Intellinaire in the menu. It uses the model set up on the AI drafting page.",
       "Ask a question about your work. It reads the last run, your review and your library to answer.",
@@ -194,7 +194,7 @@
   },
   "library-atlas": {
     "title": "The library atlas",
-    "seconds": 36.6,
+    "seconds": 36.7,
     "captions": [
       "The Start screen shows your approved answers as an atlas. Each point is one answer, grouped by topic.",
       "Point at an answer to see its question. Click it to read the answer, its evidence, approver and expiry.",
