@@ -1,9 +1,9 @@
 {
   "first-run": {
     "title": "First run and the sample company",
-    "seconds": 17.5,
+    "seconds": 17.3,
     "captions": [
-      "The Start screen opens first. The menu on the left lists every task, grouped by what it works on.",
+      "The Workspace page is where questionnaires start. The menu on the left lists every task, grouped by area.",
       "Start with the sample company runs a complete example on a fictional company, with nothing to set up.",
       "When the run finishes, the summary shows how many questions have a proposed answer and what needs a person."
     ],
@@ -14,7 +14,7 @@
     "seconds": 12.8,
     "captions": [
       "The Dark mode switch at the bottom of the menu changes the appearance. The choice is remembered.",
-      "Press Ctrl and K (Command and K on a Mac), or click Quick actions, to open the quick action list.",
+      "Press Ctrl and K (Command and K on a Mac), or click the search box at the top, to open the quick action list.",
       "Type part of a task name and press Enter to go straight to it."
     ],
     "sped_up": false
@@ -23,7 +23,7 @@
     "title": "Create your answer library",
     "seconds": 13.5,
     "captions": [
-      "Your approved answers live in one spreadsheet. On the Start screen, Create a new one makes it from a template.",
+      "Your approved answers live in one spreadsheet. On the Workspace page, Create a new one makes it from a template.",
       "The file my_approved_answers.csv is created in your results folder, and that folder opens so you can fill it in.",
       "The card now shows the new library. Fill in one row per approved answer. Change lets you choose another file later."
     ],
@@ -61,7 +61,7 @@
   },
   "answer-questionnaire": {
     "title": "Answer a questionnaire",
-    "seconds": 22.2,
+    "seconds": 22.1,
     "captions": [
       "Click the first card and choose the buyer's questionnaire, in Excel or CSV format, exactly as they sent it.",
       "Click the second card and choose your approved answers.",
@@ -73,7 +73,7 @@
   },
   "review-and-edit": {
     "title": "Review and edit answers",
-    "seconds": 27.2,
+    "seconds": 27.1,
     "captions": [
       "Review and edit lists every question. The filters narrow the list, for example to questions that need a person.",
       "Type in the search box to find a question or answer by any word.",
@@ -126,7 +126,7 @@
   },
   "ai-local": {
     "title": "AI on your computer",
-    "seconds": 39.9,
+    "seconds": 86.1,
     "captions": [
       "To keep everything on your computer, run a model with llama.cpp, Ollama or LM Studio and choose it here.",
       "Enter the address of the model server and the model name, then click Test connection.",
@@ -146,7 +146,7 @@
   },
   "command-line": {
     "title": "Command line",
-    "seconds": 32.0,
+    "seconds": 42.1,
     "captions": [
       "Every task is also available from the command line, for scripts and scheduled jobs."
     ],
@@ -154,7 +154,7 @@
   },
   "troubleshooting": {
     "title": "Troubleshooting",
-    "seconds": 9.5,
+    "seconds": 9.6,
     "captions": [
       "If an ad blocker or web filter blocks part of the app, the app reloads itself up to two times.",
       "If it is still blocked, this message explains which setting to change in the ad blocker."
@@ -169,7 +169,7 @@
       "Tick Create a desktop shortcut if you want one, then click Next.",
       "Check the summary and click Install.",
       "Leave Open Questionnaire Autopilot now ticked and click Finish.",
-      "The app opens on the Start screen. Later, open it from the Start menu or the desktop shortcut.",
+      "The app opens on the Overview page. Later, open it from the Start menu or the desktop shortcut.",
       "To uninstall, choose Uninstall in Settings, then Apps. Windows asks you to confirm.",
       "The app is removed. Your settings stay until you delete their folder."
     ],
@@ -178,7 +178,7 @@
   },
   "intellinaire-chat": {
     "title": "Intellinaire, the assistant",
-    "seconds": 62.4,
+    "seconds": 95.0,
     "captions": [
       "Intellinaire is the assistant under Intellinaire in the menu. It uses the model set up on the AI drafting page.",
       "Ask a question about your work. It reads the last run, your review and your library to answer.",
@@ -194,14 +194,109 @@
   },
   "library-atlas": {
     "title": "The library atlas",
-    "seconds": 36.7,
+    "seconds": 37.0,
     "captions": [
-      "The Start screen shows your approved answers as an atlas. Each point is one answer, grouped by topic.",
+      "The Workspace page shows your approved answers as an atlas. Each point is one answer, grouped by topic.",
       "Point at an answer to see its question. Click it to read the answer, its evidence, approver and expiry.",
       "Ask Intellinaire opens the chat with a question about that answer.",
       "Click a topic to show only its answers. Click it again to show all.",
       "Find an answer searches every question and answer. Hold Ctrl and scroll, or use the buttons, to zoom.",
       "During a run, each question travels to the answers it used, in the colour of its result."
+    ],
+    "sped_up": false
+  },
+  "overview": {
+    "title": "The security program overview",
+    "seconds": 20.6,
+    "captions": [
+      "The Overview page is the start of your security program. Until you set it up, it offers the sample company.",
+      "Explore the sample company loads a complete program for Examplify Inc., a fictional company.",
+      "The top row shows the posture score, open risks, vendors due for review, open incidents and what is due in 30 days.",
+      "Readiness lists every framework you track. Next deadlines lists incident notifications and recurring activities.",
+      "Below, the most valuable next steps and the risk heat map. Every item opens its own page."
+    ],
+    "sped_up": false
+  },
+  "company-profile": {
+    "title": "Company profile",
+    "seconds": 15.1,
+    "captions": [
+      "The company profile decides which frameworks, notification deadlines and policy wording apply.",
+      "Choose the data you hold, where you operate and the rules that apply to you. Each choice is saved at once.",
+      "Then choose the frameworks customers, regulators or insurers hold you to."
+    ],
+    "sped_up": false
+  },
+  "frameworks": {
+    "title": "Framework readiness",
+    "seconds": 18.2,
+    "captions": [
+      "Frameworks shows readiness requirement by requirement. Each tab is one framework you track.",
+      "Gaps lists the requirements no safeguard covers yet. Each safeguard name opens it on the Safeguards page.",
+      "ISO 27001 covers all 93 Annex A controls. Export readiness workbook saves every framework and the Statement of Applicability."
+    ],
+    "sped_up": false
+  },
+  "safeguards": {
+    "title": "Assess safeguards",
+    "seconds": 15.2,
+    "captions": [
+      "Safeguards lists 44 controls grouped by area. You assess each one once, and it counts toward every framework.",
+      "Select a safeguard to see what in place means, then set its status, owner and evidence.",
+      "The posture score and every framework's readiness update as you go. The page lists the frameworks it counts toward."
+    ],
+    "sped_up": false
+  },
+  "policies": {
+    "title": "Security policies",
+    "seconds": 19.1,
+    "captions": [
+      "Policies lists fifteen security policies written from your company profile and safeguards.",
+      "Select a policy to read it, with its owner, rules for each safeguard and framework references.",
+      "Approve it with the approver's name and version. Its yearly review then appears on the calendar.",
+      "Write all policies saves every policy as a Word document, HTML and Markdown in your results folder."
+    ],
+    "sped_up": false
+  },
+  "risks": {
+    "title": "Risk register",
+    "seconds": 16.3,
+    "captions": [
+      "The risk register lists each risk with its score, treatment, owner and due date. Overdue dates are marked.",
+      "Risks your safeguard gaps imply are suggested below. Add puts one in the register with its rating.",
+      "Edit the owner, due date and treatment, then Save. The heat map shows where the open risks sit."
+    ],
+    "sped_up": false
+  },
+  "vendors": {
+    "title": "Vendor risk",
+    "seconds": 17.4,
+    "captions": [
+      "Vendors lists each supplier with a tier set by the data it holds, its access, criticality and integration.",
+      "Northwind IT Services has administrator remote access, so it is Critical and has never been reviewed.",
+      "Create questionnaire saves an Excel questionnaire sized to the tier. Score their answers reads it back with red flags.",
+      "Reviewed today records the review; the next one appears on the calendar."
+    ],
+    "sped_up": false
+  },
+  "incidents": {
+    "title": "Incident response",
+    "seconds": 17.4,
+    "captions": [
+      "Incidents opens with the current incident: what happened, its severity, status and the data involved.",
+      "Notification deadlines count down for each party that may need to be told, from your profile and the incident.",
+      "Work through the playbook steps. Each one is ticked with its time and kept with the incident.",
+      "Record an incident starts a new one. Choose its kind, severity and when you became aware; the deadlines start then."
+    ],
+    "sped_up": false
+  },
+  "calendar-reports": {
+    "title": "Calendar and reports",
+    "seconds": 17.8,
+    "captions": [
+      "The calendar lists recurring activities, vendor reviews and policy reviews, overdue first.",
+      "Done records the date an activity was carried out, which sets its next due date.",
+      "Reports creates the security posture report for leadership and the readiness workbook for auditors."
     ],
     "sped_up": false
   }
