@@ -245,6 +245,7 @@ code { font: 500 .86em var(--mono); background: var(--sunk); border: 1px solid v
 .steps li::before { content: counter(s); position: absolute; left: 0; top: 2px; width: 24px; height: 24px; border-radius: 4px; background: var(--accent-soft); color: var(--accent); font: 600 .78rem var(--mono); display: grid; place-items: center; }
 .guide-clip { margin: 26px 0 18px; border: 1px solid var(--rule-strong); border-radius: 8px; overflow: hidden; background: #0c0c0b; }
 .guide-clip video { width: 100%; height: auto; aspect-ratio: 16 / 9; background: #0c0c0b; }
+.guide-clip img { display: block; width: 100%; height: auto; }
 .guide-clip figcaption { border-top: 1px solid var(--rule); }
 .guide-list { display: grid; gap: 0; border-top: 1px solid var(--rule); }
 .guide-card { display: grid; gap: 6px; padding: 24px 0; border-bottom: 1px solid var(--rule); text-decoration: none; }

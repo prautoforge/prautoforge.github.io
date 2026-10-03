@@ -38,6 +38,14 @@
       <a href="#vendors">Vendor risk</a>
       <a href="#incidents">Incident response</a>
       <a href="#calendar-reports">Calendar and reports</a>
+      <p class="footer-label">Evidence and operations</p>
+      <a href="#team-workspace">Team workspace and My work</a>
+      <a href="#evidence">Evidence and the audit package</a>
+      <a href="#automated-checks">Automated checks</a>
+      <a href="#vulnerabilities">Vulnerabilities</a>
+      <a href="#access-reviews">Access reviews</a>
+      <a href="#people-training">People and training</a>
+      <a href="#privacy-ai">Privacy, AI and the trust center</a>
       <p class="footer-label">Your approved answers</p>
       <a href="#create-library">Create your answer library</a>
       <a href="#build-library">Build your library from past questionnaires</a>
@@ -174,7 +182,7 @@
 
       <section class="guide-section" id="safeguards">
         <h3>Assess safeguards</h3>
-        <p>44 safeguards cover what the frameworks ask for, grouped by area. You assess each one once.</p>
+        <p>52 safeguards cover what the frameworks ask for, grouped by area. You assess each one once.</p>
         <ol class="steps">
           <li>Open <b>Safeguards</b>. The tabs filter by status: not assessed, not in place, partly or in place.</li>
           <li>Click a safeguard. The panel shows the question and what in place means.</li>
@@ -187,7 +195,7 @@
 
       <section class="guide-section" id="policies">
         <h3>Security policies</h3>
-        <p>Fifteen policies are written from your company profile and the safeguards each one governs, with framework references.</p>
+        <p>Seventeen policies are written from your company profile and the safeguards each one governs, with framework references.</p>
         <ol class="steps">
           <li>Open <b>Policies</b> and click a policy to read it.</li>
           <li>Adapt it to how your company works. Save it as Word with <b>Save as Word</b> and edit it there.</li>
@@ -246,6 +254,91 @@
         </ol>
         <p>The command line does the same: <code>qa program status</code>, <code>qa program report --out reports</code>, <code>qa program policies</code>.</p>
         <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/calendar-reports.jpg"><source src="assets/guide/calendar-reports.mp4" type="video/mp4"></video><figcaption>Calendar and reports</figcaption></figure>
+      </section>
+
+      <h2 class="guide-cat">Evidence and operations</h2>
+
+      <section class="guide-section" id="team-workspace">
+        <h3>Team workspace and My work</h3>
+        <p>The program can live in a folder your team shares, so everyone with the app works on the same program.</p>
+        <ol class="steps">
+          <li>Open <b>Company profile</b> and find <b>Team workspace</b>.</li>
+          <li>Enter your name for the activity log, click <b>Choose folder</b> and pick a shared or synced folder (OneDrive, Google Drive, Dropbox or a network drive), then click <b>Save</b>. The program is copied there.</li>
+          <li>On each other computer, choose the same folder. Saves are locked while they are written, so two people never overwrite each other.</li>
+          <li>Open <b>My work</b> to see the safeguards, risks, vendor reviews, access reviews and incidents whose owner field has your name.</li>
+          <li>Open <b>Activity log</b> to see every change with the time and the person's name.</li>
+        </ol>
+        <figure class="guide-clip"><img src="assets/app/overview-light.webp" alt="The overview with My work and Activity log in the menu, and the evidence, findings, training, access review and check figures" width="3200" height="2000" loading="lazy"><figcaption>My work and the overview</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="evidence">
+        <h3>Evidence and the audit package</h3>
+        <p>Evidence files are copied into the program folder, under the safeguard they prove, with a SHA-256 checksum and an optional expiry date.</p>
+        <ol class="steps">
+          <li>Open <b>Evidence</b>, choose the safeguard, give the file a title and, for things like certificates or reports, an expiry date. Click <b>Choose a file and add it</b>. You can also attach a file from a safeguard's panel on the <b>Safeguards</b> page.</li>
+          <li>The <b>Covered</b> figure shows how many safeguards marked in place have current evidence. Expired files are marked.</li>
+          <li>Click <b>Create audit package</b>. The zip holds the readiness workbook, Statement of Applicability, policies, risk register, vendors, findings, access reviews, staff records, registers, the activity log and every evidence file, with an index of checksums.</li>
+        </ol>
+        <figure class="guide-clip"><img src="assets/app/evidence-light.webp" alt="The Evidence page with files per safeguard, coverage and the audit package button" width="3200" height="2000" loading="lazy"><figcaption>Evidence</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="automated-checks">
+        <h3>Automated checks</h3>
+        <p>Checks collect evidence for you. Domain and GitHub checks run again by themselves every week while the app is open; identity and device checks read the exports you download from your admin consoles.</p>
+        <ol class="steps">
+          <li>Open <b>Automated checks</b>. Under <b>Domain security</b>, add your domains and click <b>Check now</b>. Each domain gets a grade from A to F for SPF, DKIM, DMARC, MTA-STS, DNSSEC, CAA, its certificate, TLS versions, the HTTPS redirect and security headers.</li>
+          <li>Under <b>GitHub</b>, enter your organization and a fine-grained read-only token, then click <b>Check now</b>. The token is kept in your system keychain.</li>
+          <li>Under <b>Identity provider</b> and <b>Devices</b>, click <b>Choose export</b> and pick the user or device export from Okta, Entra ID, Google Workspace, Intune, Jamf or Kandji.</li>
+          <li><b>What the checks say about your safeguards</b> lists the status each result points to. Click <b>Set these statuses</b> to apply them.</li>
+        </ol>
+        <p>From a scheduled task or cron job: <code>qa program run-checks</code>.</p>
+        <figure class="guide-clip"><img src="assets/app/monitoring-light.webp" alt="Automated checks for domains, GitHub, the identity provider and devices" width="3200" height="2000" loading="lazy"><figcaption>Automated checks</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="vulnerabilities">
+        <h3>Vulnerabilities</h3>
+        <table class="guide-table"><thead><tr><th>Severity</th><th>Fix by</th></tr></thead><tbody><tr><td>On CISA's Known Exploited list</td><td>7 days</td></tr><tr><td>Critical</td><td>14 days</td></tr><tr><td>High</td><td>30 days</td></tr><tr><td>Medium</td><td>90 days</td></tr><tr><td>Low</td><td>180 days</td></tr></tbody></table>
+        <ol class="steps">
+          <li>Export the scan from Nessus, Tenable, Qualys, Microsoft Defender or OpenVAS as CSV or Excel.</li>
+          <li>Open <b>Vulnerabilities</b> and click <b>Import a scan</b>. New findings are added; findings missing from a newer scan of the same scanner and asset are marked fixed.</li>
+          <li>Click <b>Fixed</b> when a finding is resolved, or <b>Accept risk</b> and write why.</li>
+          <li><b>Update known exploited list</b> downloads CISA's catalogue and shortens the deadline of any finding on it.</li>
+        </ol>
+        <figure class="guide-clip"><img src="assets/app/vulns-light.webp" alt="Scanner findings with severity and fix-by dates" width="3200" height="2000" loading="lazy"><figcaption>Vulnerabilities</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="access-reviews">
+        <h3>Access reviews</h3>
+        <ol class="steps">
+          <li>Export the user list from the system you are reviewing (Okta, Microsoft Entra ID, Google Workspace, AWS IAM, GitHub or any admin page) as CSV or Excel.</li>
+          <li>Open <b>Access reviews</b>, enter the system and reviewer, and click <b>Choose the user export</b>.</li>
+          <li>Administrators, accounts without MFA, accounts unused for 90 days, people marked as left and accounts not in the staff list are flagged. Choose <b>Keep</b>, <b>Change</b> or <b>Revoke</b> for each account. <b>Keep all unflagged accounts</b> decides the rest at once.</li>
+          <li>Click <b>Complete the review</b>. The record is saved as evidence and the next review appears on the calendar.</li>
+        </ol>
+        <figure class="guide-clip"><img src="assets/app/access-light.webp" alt="An access review with flagged accounts and keep, change or revoke decisions" width="3200" height="2000" loading="lazy"><figcaption>Access reviews</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="people-training">
+        <h3>People and training</h3>
+        <ol class="steps">
+          <li>Open <b>People and training</b>. Click <b>Import staff list</b> (CSV or Excel with names and emails) or <b>Add a person</b>.</li>
+          <li>Tick the people who signed a policy, choose the policy and date, and click <b>Record signatures</b>. Only approved policies can be signed, by version.</li>
+          <li>Tick the people who completed training, choose the course and click <b>Record training</b>. Security awareness is due again after twelve months.</li>
+          <li><b>Staff report</b> saves the records in Excel for the auditor.</li>
+        </ol>
+        <figure class="guide-clip"><img src="assets/app/people-light.webp" alt="Staff with training state and missing policy signatures" width="3200" height="2000" loading="lazy"><figcaption>People and training</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="privacy-ai">
+        <h3>Privacy, AI and the trust center</h3>
+        <ol class="steps">
+          <li>Open <b>Privacy and AI</b>. Under <b>Records of processing</b>, add each way you use personal data with its purpose, lawful basis, data, recipients, processors and retention. Tick the DPIA criteria that apply; two or more mean a data protection impact assessment is likely required.</li>
+          <li>Under <b>AI inventory</b>, add every AI tool staff use and every AI feature you build, with its owner, data, risk level, whether people review its output and whether the supplier trains on your data.</li>
+          <li><b>Export registers</b> saves both in Excel.</li>
+          <li>In <b>Vendors</b>, tick <b>List as a subprocessor</b> for vendors that process customer data. In <b>Company profile</b>, type only the certifications and audits you actually hold.</li>
+          <li>In <b>Reports</b>, click <b>Build site</b> under <b>Trust center website</b>. Upload the folder to any static host.</li>
+        </ol>
+        <figure class="guide-clip"><img src="assets/app/privacy-light.webp" alt="Records of processing with lawful basis, DPIA screening and gaps" width="3200" height="2000" loading="lazy"><figcaption>Privacy and AI</figcaption></figure>
       </section>
 
       <h2 class="guide-cat">Your approved answers</h2>

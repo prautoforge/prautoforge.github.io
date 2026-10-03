@@ -9,7 +9,9 @@
     incidents: "An open incident with its playbook and notification deadlines counting down",
     vendors: "The vendor register with tiers, data, access and review dates",
     risks: "The risk register with scores, owners and the heat map",
-    policies: "The fifteen security policies with approval state and a policy preview",
+    policies: "The seventeen security policies with approval state and a policy preview",
+    vulns: "Scanner findings with severity, fix-by dates and the ones past due",
+    evidence: "Evidence files per safeguard with checksums, and the audit package button",
     review: "Review and edit: an answer beside its approved evidence, with an unsupported claim marked At risk"
   };
   var buttons = document.querySelectorAll("[data-shot]");
