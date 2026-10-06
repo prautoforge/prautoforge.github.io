@@ -201,7 +201,7 @@
       "Ask Intellinaire opens the chat with a question about that answer.",
       "Click a topic to show only its answers. Click it again to show all.",
       "Find an answer searches every question and answer. Hold Ctrl and scroll, or use the buttons, to zoom.",
-      "During a run, each question travels to the answers it used, in the colour of its result."
+      "During a run, each question travels to the answers it used, in the color of its result."
     ],
     "sped_up": false
   },

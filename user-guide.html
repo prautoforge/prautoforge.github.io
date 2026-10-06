@@ -32,6 +32,7 @@
       <a href="#overview">The security program overview</a>
       <a href="#company-profile">Company profile</a>
       <a href="#frameworks">Framework readiness</a>
+      <a href="#standards">Standards and updates</a>
       <a href="#safeguards">Assess safeguards</a>
       <a href="#policies">Security policies</a>
       <a href="#risks">Risk register</a>
@@ -113,7 +114,7 @@
           <li>Click <b>Deactivate this computer</b>, then click it again to confirm.</li>
           <li>Activate the new computer with the same key.</li>
         </ol>
-        <p class="guide-note">If a computer was replaced or lost before you could deactivate it, email <a class="contact" href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a> with your order number. For computers without internet access, the email can ask for an offline license file: include the computer code shown under <b>Use a license file</b> on the activation screen.</p>
+        <p class="guide-note">If a computer was replaced or lost before you could deactivate it, email <a class="contact" href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a> with your order number. For computers without internet access, the email can ask for an offline license file: include the computer code shown under <b>Use a license file</b> on the activation screen. When the file arrives, open <b>Use a license file</b> again and drop the file on the box, or click <b>Choose file</b>. A license file works only on the computer it was issued for.</p>
       </section>
 
       <section class="guide-section" id="first-run">
@@ -163,6 +164,8 @@
           <li>Choose what applies to you: selling to businesses, a US public company, a NIS2 entity, an EU financial entity under DORA or regulation by NY DFS.</li>
           <li>Enter the notice period in your customer contracts, in hours. Incidents involving customer data use it as a deadline.</li>
           <li>Under <b>Frameworks to track</b>, click each framework to add or remove it.</li>
+          <li>Under <b>Team workspace</b>, enter your name for the activity log and, to share the program, choose a shared folder with <b>Choose folder</b>, then press <b>Save workspace</b>.</li>
+          <li>Under <b>Backups</b>, press <b>Back up now</b> before a large change. A copy is also made every day and before loading the sample company, removing the program or restoring. To go back, press <b>Restore</b> beside a backup, then press it again to confirm; the version it replaces is backed up first.</li>
         </ol>
         <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/company-profile.jpg"><source src="assets/guide/company-profile.mp4" type="video/mp4"></video><figcaption>Company profile</figcaption></figure>
       </section>
@@ -174,10 +177,24 @@
           <li>Open <b>Frameworks</b> and choose a framework tab: SOC 2, ISO 27001, NIST CSF 2.0, CIS Controls, HIPAA Security, PCI DSS 4.0, NIS2 or Cyber insurance.</li>
           <li>Click <b>Gaps</b> to list only the requirements not covered yet.</li>
           <li>Click a safeguard name under a requirement to assess it on the Safeguards page.</li>
-          <li>Click <b>Export readiness workbook</b> to save an Excel workbook with every framework, your safeguards and the ISO 27001 Statement of Applicability.</li>
+          <li>Click <b>Export readiness workbook</b> to save an Excel workbook with every framework, your safeguards and the ISO 27001 Statement of Applicability, or <b>Export mapping</b> to save one framework's requirements and safeguards as a spreadsheet.</li>
         </ol>
         <p class="notice">Readiness is your own assessment. It shows how prepared you are for an audit or assessment; the auditor decides the outcome.</p>
         <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/frameworks.jpg"><source src="assets/guide/frameworks.mp4" type="video/mp4"></video><figcaption>Framework readiness</figcaption></figure>
+      </section>
+
+      <section class="guide-section" id="standards">
+        <h3>Standards and updates</h3>
+        <p>Standards change: new editions, deadlines that move, rules that are proposed or paused. <b>Standards and updates</b> shows the edition each framework follows, every dated change and what it means, and lets you add frameworks of your own.</p>
+        <ol class="steps">
+          <li>Open <b>Standards and updates</b>. <b>What is changing</b> lists the frameworks you track, each with its edition, the official source and a timeline marked In force, Coming, Proposed or Paused. Coming dates also appear in the Overview deadlines and the Calendar.</li>
+          <li>Press <b>Check for updates</b>. If PrautoForge has published a signed standards update, the app shows each framework it changes: requirements added, removed, changed or renumbered, and your readiness before and after. Press <b>Install update</b> to apply it, or <b>Not now</b>. On a computer without internet, choose <b>Updates</b>, then <b>Open an update file</b>.</li>
+          <li>To add a customer's security requirements or an internal standard, choose <b>Your frameworks</b>, then <b>Import from a spreadsheet</b> (one requirement per row, in a column named Requirement, with an optional ID column) or <b>New framework</b>.</li>
+          <li>The app suggests the safeguards each requirement means. Check every suggestion: remove a safeguard that does not fit, add one from <b>Add a safeguard</b>, or press <b>Suggested, confirm</b>. Then press <b>Save framework</b>. It appears on the Frameworks page with its readiness.</li>
+          <li><b>Readiness history</b> shows your posture score over the last year. Name a record before an audit or a board meeting with <b>Record now</b>. A record is also made before and after each standards update.</li>
+        </ol>
+        <p class="notice">Installing an update never changes your safeguard assessments. Updates are signed by PrautoForge; the app refuses any file that is not.</p>
+        <figure class="guide-clip"><img src="assets/app/standards-light.webp" alt="Standards and updates: CMMC Phase 2 marked paused and the EU AI Act high-risk dates moved to 2027 and 2028, each with its official source" width="3200" height="2000" loading="lazy"><figcaption>Standards and updates</figcaption></figure>
       </section>
 
       <section class="guide-section" id="safeguards">
@@ -263,10 +280,10 @@
         <p>The program can live in a folder your team shares, so everyone with the app works on the same program.</p>
         <ol class="steps">
           <li>Open <b>Company profile</b> and find <b>Team workspace</b>.</li>
-          <li>Enter your name for the activity log, click <b>Choose folder</b> and pick a shared or synced folder (OneDrive, Google Drive, Dropbox or a network drive), then click <b>Save</b>. The program is copied there.</li>
+          <li>Enter your name for the activity log, click <b>Choose folder</b> beside Program folder and pick a shared or synced folder (OneDrive, Google Drive, Dropbox or a network drive), then click <b>Save workspace</b>. The program is copied there.</li>
           <li>On each other computer, choose the same folder. Saves are locked while they are written, so two people never overwrite each other.</li>
           <li>Open <b>My work</b> to see the safeguards, risks, vendor reviews, access reviews and incidents whose owner field has your name.</li>
-          <li>Open <b>Activity log</b> to see every change with the time and the person's name.</li>
+          <li>Open <b>Activity log</b> (in the menu, or the link at the top of the Team workspace card) to see every change with the time and the person's name. Choose a person under <b>Show changes by</b> to see only theirs.</li>
         </ol>
         <figure class="guide-clip"><img src="assets/app/overview-light.webp" alt="The overview with My work and Activity log in the menu, and the evidence, findings, training, access review and check figures" width="3200" height="2000" loading="lazy"><figcaption>My work and the overview</figcaption></figure>
       </section>
@@ -302,7 +319,7 @@
           <li>Export the scan from Nessus, Tenable, Qualys, Microsoft Defender or OpenVAS as CSV or Excel.</li>
           <li>Open <b>Vulnerabilities</b> and click <b>Import a scan</b>. New findings are added; findings missing from a newer scan of the same scanner and asset are marked fixed.</li>
           <li>Click <b>Fixed</b> when a finding is resolved, or <b>Accept risk</b> and write why.</li>
-          <li><b>Update known exploited list</b> downloads CISA's catalogue and shortens the deadline of any finding on it.</li>
+          <li><b>Update known exploited list</b> downloads CISA's catalog and shortens the deadline of any finding on it.</li>
         </ol>
         <figure class="guide-clip"><img src="assets/app/vulns-light.webp" alt="Scanner findings with severity and fix-by dates" width="3200" height="2000" loading="lazy"><figcaption>Vulnerabilities</figcaption></figure>
       </section>
@@ -419,7 +436,7 @@
           <li>Type in <b>Find an answer</b> to highlight every answer that contains the text.</li>
           <li>Use the <b>+</b> and <b>&minus;</b> buttons to zoom, or hold <kbd>Ctrl</kbd> and scroll. The last button resets the view.</li>
         </ol>
-        <p>Expired answers are drawn as rings and answers set aside are drawn smaller and grey. During a run, each question travels to the answers it used, in the colour of its result.</p>
+        <p>Expired answers are drawn as rings and answers set aside are drawn smaller and grey. During a run, each question travels to the answers it used, in the color of its result.</p>
         <figure class="guide-clip"><video controls playsinline preload="none" poster="assets/guide/library-atlas.jpg"><source src="assets/guide/library-atlas.mp4" type="video/mp4"></video><figcaption>The library atlas</figcaption></figure>
       </section>
 
@@ -566,7 +583,7 @@
           <li>To stop a reply, click the red stop button. Point at a reply to copy it or have it written again. Point at your own message to edit it and send it again.</li>
         </ol>
         <p>Intellinaire knows which page you came from and which question you had selected on the Review page, so a question such as "Improve this answer" refers to that question.</p>
-        <p>The circle next to the model name shows how much of the model's memory the conversation uses. When it fills up, older messages are summarised automatically, so long conversations keep their context.</p>
+        <p>The circle next to the model name shows how much of the model's memory the conversation uses. When it fills up, older messages are summarized automatically, so long conversations keep their context.</p>
         <h4>Changes and approvals</h4>
         <p>Intellinaire can prepare these changes: a new answer for a question in the review, a new or updated answer in your library, guard terms, settings such as the company name or appearance, and tasks such as running the sample company or building the trust pack. It never makes a change by itself.</p>
         <ol class="steps">
