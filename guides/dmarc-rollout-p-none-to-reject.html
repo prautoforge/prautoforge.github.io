@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DMARC from p=none to p=reject: a safe rollout for small teams | PrautoForge</title>
+  <meta name="description" content="Move DMARC from monitoring to enforcement without blocking your own email: what each policy does, which reports to read, and the order to change things in.">
+  <meta name="theme-color" content="#0c0c0b">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="DMARC from p=none to p=reject: a safe rollout for small teams">
+  <meta property="og:description" content="Move DMARC from monitoring to enforcement without blocking your own email: what each policy does, which reports to read, and the order to change things in.">
+  <meta property="og:url" content="https://prautoforge.github.io/guides/dmarc-rollout-p-none-to-reject.html">
+  <meta property="og:image" content="https://prautoforge.github.io/assets/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://prautoforge.github.io/guides/dmarc-rollout-p-none-to-reject.html">
+  <link rel="icon" href="../assets/icon.png">
+  <script src="../assets/theme.js"></script>
+  <link rel="preload" href="../assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"DMARC from p=none to p=reject: a safe rollout for small teams","description":"Move DMARC from monitoring to enforcement without blocking your own email: what each policy does, which reports to read, and the order to change things in.","author":{"@type":"Organization","name":"PrautoForge"},"publisher":{"@type":"Organization","name":"PrautoForge"},"dateModified":"2026-10-09","mainEntityOfPage":"https://prautoforge.github.io/guides/dmarc-rollout-p-none-to-reject.html"}</script><script src="../assets/navigation.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Will p=reject block my own email?", "acceptedAnswer": {"@type": "Answer", "text": "Only mail that fails both SPF and DKIM alignment is rejected. You can read aggregate reports first to see which of your senders would fail."}}, {"@type": "Question", "name": "What is a safe first DMARC record?", "acceptedAnswer": {"@type": "Answer", "text": "A safe first DMARC record is v=DMARC1; p=none; rua=mailto:dmarc@yourdomain. This record collects reports without changing delivery."}}]}</script></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="shell nav-shell"><a class="brand" href="../index.html" aria-label="PrautoForge home"><img src="../assets/icon.png" alt="" width="34" height="34"><span>PrautoForge</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">+</span></button><nav class="main-nav" id="primary-nav" aria-label="Primary navigation"><a href="../index.html">Product</a><a href="../workflow.html">Workflow</a><a href="../pricing.html">Pricing</a><a href="../user-guide.html">User guide</a><a href="../guides/index.html">Articles</a><a class="nav-support" href="../support.html">Support</a></nav><a class="nav-cta" href="../index.html#buy">Get the app</a><button class="theme-switch" type="button" aria-label="Switch between light and dark"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></div></header>
+<main id="main" class="shell doc-shell article"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Product</a><span aria-hidden="true">/</span><a href="index.html">Articles</a><span aria-hidden="true">/</span><span>Guide</span></nav>
+  <p class="eyebrow">Email security</p>
+  <h1>DMARC from p=none to p=reject: a safe rollout for small teams</h1>
+  <p class="doc-lede">A DMARC record with p=none only watches. Spoofed email that claims to come from your domain still arrives. Moving to quarantine and then reject stops it, as long as your own mail passes first.</p>
+  <h2>What DMARC checks</h2>
+  <p>DMARC is a TXT record published at _dmarc.yourdomain. A message passes DMARC when SPF or DKIM passes and the passing domain aligns with the domain in the From address the reader sees. The p tag sets the policy for the domain. The none policy only monitors traffic. The quarantine policy sends failing mail to spam. The reject policy refuses the mail entirely.</p>
+  <p>For a small company, this means you can control how other mail servers handle messages that claim to be from you. If you start with a none policy, you can see who is sending mail on your behalf without blocking any messages. You should move to quarantine or reject once you know your legitimate mail passes these checks. This prevents others from spoofing your domain.</p>
+  <h2>Start by reading the reports</h2>
+  <p>The rua tag provides an email address to receive daily aggregate reports from large mailbox providers. These reports list every server that sent mail using your domain. They show whether each sender passed SPF and DKIM checks. This data lets you see who is sending mail on your behalf and if those messages are authenticated correctly.</p>
+  <p>Common senders that fail these checks at first include your CRM, billing system, help desk, and newsletter service. For a small company, this means you must identify every legitimate tool that sends mail for you. You then need to add each of these senders to your SPF record or set them up to sign with DKIM for your domain.</p>
+  <h2>Move to quarantine, then reject</h2>
+  <p>Change your policy from p=none to p=quarantine once reports show your own senders pass. You can use the pct tag to apply this policy to a share of failing mail. For example, set pct=25 to make the change in steps. This allows you to test the effect on your email delivery before applying the policy to all messages.</p>
+  <p>Move to p=reject after a few weeks of clean reports. This final step ensures that unauthorized mail is blocked entirely. For a small company, this means you reduce the risk of someone spoofing your domain. Start with a small percentage of mail and increase it slowly to avoid blocking legitimate messages.</p>
+  <h2>Why it matters now</h2>
+  <p>Google and Yahoo now require bulk senders to publish SPF, DKIM, and DMARC records. This applies to those sending more than 5,000 messages a day to their users. Customer security questionnaires also frequently ask if you have these three protocols in place. Phishing attacks that use a supplier&#x27;s real domain are a common way for attackers to enter a company.</p>
+  <p>These requirements mean your emails may be blocked if you lack these records. You also risk losing customers who require these security standards during their vetting process. Attackers can spoof your domain to trick your partners if you do not have a strict policy. You should implement these records to ensure email delivery and protect your brand reputation.</p>
+  <h2>Questions</h2>
+  <h3>Will p=reject block my own email?</h3>
+  <p>Only mail that fails both SPF and DKIM alignment is rejected. You can read aggregate reports first to see which of your senders would fail.</p>
+  <h3>What is a safe first DMARC record?</h3>
+  <p>A safe first DMARC record is v=DMARC1; p=none; rua=mailto:dmarc@yourdomain. This record collects reports without changing delivery.</p>
+<aside class="article-cta">
+  <p class="eyebrow">Questionnaire Autopilot</p>
+  <p><strong>Questionnaire Autopilot checks SPF, DKIM, DMARC and MTA-STS every week and keeps each grade as evidence for the next customer questionnaire.</strong> It runs on your own computer: $99 once, with a free 14-day trial.</p>
+  <a class="button button-primary" href="../index.html#buy">Try it free for 14 days <span aria-hidden="true">→</span></a>
+</aside>
+  <p class="article-meta">Last updated 09 October 2026. PrautoForge makes Questionnaire Autopilot. This guide is general information, not legal or compliance advice. Check the official source before acting. Free tool: <a href="../tools/email-security-check.html">email security check</a>.</p>
+</main>
+<footer class="site-footer"><div class="shell footer-grid"><div><a class="brand footer-brand" href="../index.html"><img src="../assets/icon.png" alt="" width="32" height="32"><span>PrautoForge</span></a><p>Questionnaire Autopilot<br>Security, compliance and questionnaires, on your own computer.</p></div><div><p class="footer-label">Explore</p><a href="../workflow.html">Workflow</a><a href="../pricing.html">Pricing &amp; requirements</a><a href="../user-guide.html">User guide</a><a href="../guides/index.html">Articles &amp; template</a></div><div><p class="footer-label">Help &amp; policies</p><a href="../support.html">Support</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms &amp; refunds</a><a href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a></div><div class="footer-base"><nav class="socials" aria-label="Social media"><a href="https://www.instagram.com/prautofautoq/" rel="me noopener" target="_blank" aria-label="PrautoForge on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a></nav><p class="copyright">© 2026 PrautoForge.</p></div></div></footer>
+</body>
+</html>

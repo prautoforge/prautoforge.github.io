@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free email security check: SPF, DMARC, DKIM and MTA-STS | PrautoForge</title>
+  <meta name="description" content="Check any domain's email security in seconds: SPF, DMARC policy, DKIM keys, MTA-STS, DNSSEC and CAA, graded A to F with the exact records to fix. Free, no sign-up.">
+  <meta name="theme-color" content="#0c0c0b">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Free email security check: SPF, DMARC, DKIM and MTA-STS">
+  <meta property="og:description" content="Check any domain's email security in seconds: SPF, DMARC policy, DKIM keys, MTA-STS, DNSSEC and CAA, graded A to F with the exact records to fix. Free, no sign-up.">
+  <meta property="og:url" content="https://prautoforge.github.io/tools/email-security-check.html">
+  <meta property="og:image" content="https://prautoforge.github.io/assets/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://prautoforge.github.io/tools/email-security-check.html">
+  <link rel="icon" href="../assets/icon.png">
+  <script src="../assets/theme.js"></script>
+  <link rel="preload" href="../assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","applicationCategory":"SecurityApplication","operatingSystem":"Any (web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"name":"Free email security check: SPF, DMARC, DKIM and MTA-STS","description":"Check any domain's email security in seconds: SPF, DMARC policy, DKIM keys, MTA-STS, DNSSEC and CAA, graded A to F with the exact records to fix. Free, no sign-up.","author":{"@type":"Organization","name":"PrautoForge"},"publisher":{"@type":"Organization","name":"PrautoForge"},"dateModified":"2026-10-09","mainEntityOfPage":"https://prautoforge.github.io/tools/email-security-check.html"}</script><script src="../assets/navigation.js" defer></script><script src="../assets/emailcheck.js" defer></script></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="shell nav-shell"><a class="brand" href="../index.html" aria-label="PrautoForge home"><img src="../assets/icon.png" alt="" width="34" height="34"><span>PrautoForge</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">+</span></button><nav class="main-nav" id="primary-nav" aria-label="Primary navigation"><a href="../index.html">Product</a><a href="../workflow.html">Workflow</a><a href="../pricing.html">Pricing</a><a href="../user-guide.html">User guide</a><a href="../guides/index.html">Articles</a><a class="nav-support" href="../support.html">Support</a></nav><a class="nav-cta" href="../index.html#buy">Get the app</a><button class="theme-switch" type="button" aria-label="Switch between light and dark"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></div></header>
+<main id="main" class="shell doc-shell article"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Product</a><span aria-hidden="true">/</span><a href="../guides/index.html">Articles</a><span aria-hidden="true">/</span><span>Free tool</span></nav>
+  <p class="eyebrow">Free tool</p>
+  <h1>Email security check</h1>
+  <p class="doc-lede">Enter a domain to see whether others can send email that pretends to come from it. You get a grade from A to F and the exact records to fix. It runs in your browser; nothing is stored.</p>
+  <form class="ec-form" id="ec-form" autocomplete="off">
+    <label class="sr-only" for="ec-domain">Domain</label>
+    <input id="ec-domain" name="domain" type="text" inputmode="url" spellcheck="false" placeholder="example.com" required>
+    <button class="button button-primary" type="submit">Check domain</button>
+  </form>
+  <p class="ec-status" id="ec-status" role="status" aria-live="polite"></p>
+  <section class="ec-result" id="ec-result" hidden></section>
+
+  <h2>What this checks</h2>
+  <table>
+    <thead><tr><th>Check</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td>SPF</td><td>Lists the servers allowed to send mail for the domain. Without it, anyone can claim to send as you.</td></tr>
+      <tr><td>DMARC</td><td>Tells receivers what to do with mail that fails SPF and DKIM. Only <code>p=quarantine</code> or <code>p=reject</code> stops spoofed mail.</td></tr>
+      <tr><td>DKIM</td><td>Signs each message, so receivers can tell it was not changed and came from your provider.</td></tr>
+      <tr><td>MTA-STS</td><td>Makes other servers deliver mail to you over an encrypted connection only.</td></tr>
+      <tr><td>DNSSEC</td><td>Signs your DNS answers, so they cannot be forged on the way.</td></tr>
+      <tr><td>CAA</td><td>Limits which certificate authorities may issue certificates for your domain.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>How the grade works</h2>
+  <p>Every domain starts at 100. Each problem takes points off by how much it matters: a missing SPF or DMARC record on a domain that receives mail costs 15 points, a weak DMARC policy 10, a missing MTA-STS, DNSSEC or CAA record 5. A is 90 or more, B 80, C 70, D 60, and anything lower is F. DKIM is checked under the selectors most providers use; if yours uses another name, the check says so rather than marking it wrong.</p>
+
+  <h2>Why buyers ask about this</h2>
+  <p>Security questionnaires from customers often ask whether you publish SPF, DKIM and DMARC, because phishing that uses a supplier's domain is a common way into a company. A grade of A or B, with the date you checked, is an easy answer to give.</p>
+
+  <h2>Privacy</h2>
+  <p>The lookups go from your browser to Cloudflare's public DNS resolver (<code>cloudflare-dns.com</code>), the same public records anyone can read. PrautoForge does not receive the domain or the result.</p>
+<aside class="article-cta">
+  <p class="eyebrow">Questionnaire Autopilot</p>
+  <p><strong>Have this checked every week, with the result kept as evidence.</strong> Questionnaire Autopilot runs this check and a full website check (certificate, TLS versions, HTTPS redirect, security headers) every week, grades your domain and your vendors' domains, and keeps each result as audit evidence. It also answers security questionnaires from your approved answers. It runs on your own computer.</p>
+  <a class="button button-primary" href="../index.html#buy">Try it free for 14 days <span aria-hidden="true">→</span></a>
+</aside>
+  <p class="article-meta">Last updated 09 October 2026. PrautoForge makes Questionnaire Autopilot. This check is general information about public DNS records, not a security audit.</p>
+</main>
+<footer class="site-footer"><div class="shell footer-grid"><div><a class="brand footer-brand" href="../index.html"><img src="../assets/icon.png" alt="" width="32" height="32"><span>PrautoForge</span></a><p>Questionnaire Autopilot<br>Security, compliance and questionnaires, on your own computer.</p></div><div><p class="footer-label">Explore</p><a href="../workflow.html">Workflow</a><a href="../pricing.html">Pricing &amp; requirements</a><a href="../user-guide.html">User guide</a><a href="../guides/index.html">Articles &amp; template</a></div><div><p class="footer-label">Help &amp; policies</p><a href="../support.html">Support</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms &amp; refunds</a><a href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a></div><div class="footer-base"><nav class="socials" aria-label="Social media"><a href="https://www.instagram.com/prautofautoq/" rel="me noopener" target="_blank" aria-label="PrautoForge on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a></nav><p class="copyright">© 2026 PrautoForge.</p></div></div></footer>
+</body>
+</html>

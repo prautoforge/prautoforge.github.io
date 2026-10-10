@@ -2,18 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://prautoforge.github.io/assets/sample-assurance-pack.html</loc><lastmod>2026-10-03</lastmod></url>
   <url><loc>https://prautoforge.github.io/assets/sample-report.html</loc><lastmod>2026-10-03</lastmod></url>
+  <url><loc>https://prautoforge.github.io/de/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://prautoforge.github.io/es/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://prautoforge.github.io/fr/</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://prautoforge.github.io/guides/answer-library-template.html</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://prautoforge.github.io/guides/answer-security-questionnaire.html</loc><lastmod>2026-10-04</lastmod></url>
-  <url><loc>https://prautoforge.github.io/guides/</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://prautoforge.github.io/guides/dmarc-rollout-p-none-to-reject.html</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://prautoforge.github.io/guides/</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://prautoforge.github.io/guides/questions-not-to-answer-alone.html</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://prautoforge.github.io/guides/security-questionnaire-automation-fit.html</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://prautoforge.github.io/guides/security-questionnaire-final-check.html</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://prautoforge.github.io/guides/sig-lite-vs-caiq.html</loc><lastmod>2026-10-06</lastmod></url>
   <url><loc>https://prautoforge.github.io/</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://prautoforge.github.io/ja/</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://prautoforge.github.io/pricing.html</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://prautoforge.github.io/privacy.html</loc><lastmod>2026-10-06</lastmod></url>
+  <url><loc>https://prautoforge.github.io/pt/</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://prautoforge.github.io/support.html</loc><lastmod>2026-10-04</lastmod></url>
   <url><loc>https://prautoforge.github.io/terms.html</loc><lastmod>2026-10-10</lastmod></url>
+  <url><loc>https://prautoforge.github.io/tools/email-security-check.html</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://prautoforge.github.io/user-guide.html</loc><lastmod>2026-10-10</lastmod></url>
   <url><loc>https://prautoforge.github.io/workflow.html</loc><lastmod>2026-10-04</lastmod></url>
 </urlset>

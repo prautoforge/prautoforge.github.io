@@ -275,7 +275,7 @@ code { font: 500 .86em var(--mono); background: var(--sunk); border: 1px solid v
 .capability-grid p { color: var(--muted); }
 .fit-section { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; padding-block: 72px; border-top: 1px solid var(--rule); }
 .fit-section p { margin-top: 12px; color: var(--muted); }
-.resource-band { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 0; padding-block: 72px; }
+.resource-band { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; padding-block: 72px; }
 .resource-band > a { padding: 24px; border: 1px solid var(--rule); margin-left: -1px; text-decoration: none; display: grid; gap: 6px; }
 .resource-band > a:hover { background: var(--bg-2); }
 .resource-band span { color: var(--muted); font-size: .94rem; }
@@ -336,3 +336,37 @@ code { font: 500 .86em var(--mono); background: var(--sunk); border: 1px solid v
   .purchase-box { padding: 20px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+/* Free email security check (tools/email-security-check.html) */
+.ec-form { display: flex; gap: 10px; margin: 26px 0 8px; max-width: 620px; }
+.ec-form input { flex: 1; min-width: 0; font: inherit; font-size: 1.05rem; padding: 12px 14px; border: 1px solid var(--rule-strong); border-radius: 8px; background: var(--sheet); color: var(--heading); }
+.ec-form input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.ec-status { min-height: 1.4em; color: var(--muted); font-size: .92rem; margin: 4px 0 0; }
+.ec-result { margin: 18px 0 34px; border: 1px solid var(--rule-strong); border-radius: 10px; overflow: hidden; }
+.ec-head { display: flex; align-items: center; gap: 18px; padding: 18px 20px; border-bottom: 1px solid var(--rule); }
+.ec-head-text { display: grid; gap: 2px; } .ec-head-text span { color: var(--muted); font-size: .9rem; }
+.ec-grade { width: 58px; height: 58px; border-radius: 10px; display: grid; place-items: center; font-size: 1.9rem; font-weight: 800; color: #fff; flex: none; }
+.ec-g-a { background: var(--ok); } .ec-g-b { background: #4c8a3a; } .ec-g-c { background: var(--warn); } .ec-g-d, .ec-g-f { background: var(--risk); }
+.ec-row { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 12px; padding: 12px 20px; border-bottom: 1px solid var(--rule); }
+.ec-row:last-child { border-bottom: 0; }
+.ec-row p { margin: 0; }
+.ec-mark { font-size: .72rem; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; padding-top: 3px; }
+.ec-row.ok .ec-mark { color: var(--ok); } .ec-row.bad .ec-mark { color: var(--risk); } .ec-row.info .ec-mark { color: var(--muted); }
+.ec-fix { display: block; margin-top: 6px; padding: 8px 10px; border-radius: 6px; background: var(--accent-soft); font-size: .84rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+@media (max-width: 560px) { .ec-form { flex-direction: column; } .ec-head { padding: 14px 16px; } .ec-row { padding: 10px 16px; grid-template-columns: 44px minmax(0, 1fr); } }
+
+/* Localized landing pages (site/src/<lang>/) */
+.lang-switch { display: flex; flex-wrap: wrap; gap: 4px 14px; align-items: center; font-size: .9rem; }
+.nav-shell .lang-switch { margin-left: auto; margin-right: 18px; }
+.lang-switch a { color: var(--muted); text-decoration: none; }
+.lang-switch a:hover { color: var(--heading); }
+.lang-switch a[aria-current="page"] { color: var(--heading); font-weight: 650; }
+.footer-grid .lang-switch { display: grid; gap: 6px; }
+.local-features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; padding-block: 24px 64px; }
+.local-features article { padding: 26px; border: 1px solid var(--rule); margin-left: -1px; }
+.local-features h3 { margin: 0 0 8px; }
+.local-features p { margin: 0; color: var(--muted); }
+.local-band { grid-template-columns: minmax(0, 1fr); padding-block: 0 72px; }
+@media (max-width: 860px) { .local-features { grid-template-columns: minmax(0, 1fr); } .nav-shell .lang-switch { display: none; } }
+.hero h1 { overflow-wrap: break-word; hyphens: auto; }
+:lang(ja) .hero h1 { line-break: strict; word-break: normal; }
