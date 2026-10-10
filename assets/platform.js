@@ -16,6 +16,9 @@
   function set(sel, text) { document.querySelectorAll(sel).forEach(function (el) { el.textContent = text; }); }
   function apply(r) {
     document.querySelectorAll('a[data-action="checkout"]').forEach(function (a) { a.href = r.dataset.url; });
+    document.querySelectorAll('a[data-action="trial"]').forEach(function (a) {
+      a.hidden = !r.dataset.trial; if (r.dataset.trial) a.href = r.dataset.trial;
+    });
     set("[data-plat-name]", r.dataset.name);
     set("[data-plat-req]", r.dataset.req);
     set("[data-plat-file]", r.dataset.file);

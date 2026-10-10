@@ -161,6 +161,8 @@ code { font: 500 .86em var(--mono); background: var(--sunk); border: 1px solid v
 .purchase-box li { position: relative; padding-left: 26px; }
 .purchase-box li::before { content: ""; position: absolute; left: 2px; top: 8px; width: 10px; height: 6px; border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg); }
 .purchase-box .button { width: 100%; }
+.purchase-box .trial-button { margin-top: 10px; }
+.purchase-box .trial-button[hidden] { display: none; }
 .buy-note { font-size: .82rem; color: var(--muted); }
 .buy-note a { color: var(--accent); }
 .platforms { --gap: 4px; border: 0; margin: 0; padding: 0; min-width: 0; display: grid; gap: 10px; }
