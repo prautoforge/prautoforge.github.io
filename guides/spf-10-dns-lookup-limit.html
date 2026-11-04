@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SPF record explained: the 10 lookup limit and how to fix permerror | PrautoForge</title>
+  <meta name="description" content="Why an SPF record that looks right can still fail: the 10 DNS lookup limit, the all mechanism, duplicate records and how to fix each one.">
+  <meta name="theme-color" content="#0c0c0b">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SPF record explained: the 10 lookup limit and how to fix permerror">
+  <meta property="og:description" content="Why an SPF record that looks right can still fail: the 10 DNS lookup limit, the all mechanism, duplicate records and how to fix each one.">
+  <meta property="og:url" content="https://prautoforge.github.io/guides/spf-10-dns-lookup-limit.html">
+  <meta property="og:image" content="https://prautoforge.github.io/assets/og-cover.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://prautoforge.github.io/guides/spf-10-dns-lookup-limit.html">
+  <link rel="icon" href="../assets/icon.png">
+  <script src="../assets/theme.js"></script>
+  <link rel="preload" href="../assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"SPF record explained: the 10 lookup limit and how to fix permerror","description":"Why an SPF record that looks right can still fail: the 10 DNS lookup limit, the all mechanism, duplicate records and how to fix each one.","author":{"@type":"Organization","name":"PrautoForge"},"publisher":{"@type":"Organization","name":"PrautoForge"},"dateModified":"2026-11-04","mainEntityOfPage":"https://prautoforge.github.io/guides/spf-10-dns-lookup-limit.html"}</script><script src="../assets/navigation.js" defer></script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How do I count SPF lookups?", "acceptedAnswer": {"@type": "Answer", "text": "Count each include, a, mx, ptr, exists, and redirect. You must also count the same mechanisms found inside each included record."}}, {"@type": "Question", "name": "Is ~all good enough?", "acceptedAnswer": {"@type": "Answer", "text": "~all is common and acceptable while DMARC enforcement is in place. However, -all is stricter."}}]}</script></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="shell nav-shell"><a class="brand" href="../index.html" aria-label="PrautoForge home"><img src="../assets/icon.png" alt="" width="34" height="34"><span>PrautoForge</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" hidden>Menu <span aria-hidden="true">+</span></button><nav class="main-nav" id="primary-nav" aria-label="Primary navigation"><a href="../index.html">Product</a><a href="../workflow.html">Workflow</a><a href="../pricing.html">Pricing</a><a href="../user-guide.html">User guide</a><a href="../guides/index.html">Articles</a><a class="nav-support" href="../support.html">Support</a></nav><a class="nav-cta" href="../index.html#buy">Get the app</a><button class="theme-switch" type="button" aria-label="Switch between light and dark"><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button></div></header>
+<main id="main" class="shell doc-shell article"><nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../index.html">Product</a><span aria-hidden="true">/</span><a href="index.html">Articles</a><span aria-hidden="true">/</span><span>Guide</span></nav>
+  <p class="eyebrow">Email security</p>
+  <h1>SPF record explained: the 10 lookup limit and how to fix permerror</h1>
+  <p class="doc-lede">An SPF record can look correct and still fail at every receiver. The usual causes are too many DNS lookups, two records instead of one, or an ending that allows anyone to send.</p>
+  <h2>What an SPF record is</h2>
+  <p>An SPF record is a TXT record on your domain that starts with v=spf1. It lists the servers and services allowed to send email for your domain. Your domain must have exactly one SPF record. If you have two records, systems treat this as an error.</p>
+  <p>This means you cannot simply add a new record every time you start using a new email service. Adding a second record will cause your emails to fail security checks. You must instead edit your existing record to include new authorized senders. This ensures your mail reaches the inbox and prevents spoofing.</p>
+  <h2>The 10 lookup limit</h2>
+  <p>The SPF standard, RFC 7208, allows at most 10 DNS lookups while a record is evaluated. Mechanisms such as a, mx, ptr, and exists count toward this limit. The redirect modifier also counts. Lookups inside every included record count toward the limit as well.</p>
+  <p>Going over this limit results in a permerror. Email receivers treat messages with a permerror as failing SPF. This means your emails may be blocked or sent to spam folders because the receiving server cannot verify the sender.</p>
+  <ul><li>a</li><li>mx</li><li>ptr</li><li>exists</li><li>redirect modifier</li><li>lookups inside included records</li></ul>
+  <h2>How the record should end</h2>
+  <p>You must choose how to end your record to tell receiving servers how to handle unauthorized mail. Using -all creates a hard fail. This tells the server to reject mail from any source not listed in your record. Using ~all creates a soft fail. This allows the server to accept the mail but mark it as suspicious.</p>
+  <p>Other options like ?all or +all are less effective. Neutral or allow settings permit any server to send mail on your behalf. This defeats the purpose of using a record for security. Your choice determines if your company prioritizes strict rejection or flexible warnings for unverified mail.</p>
+  <h2>Fixing a record that fails</h2>
+  <p>You can fix a failing record by removing services you no longer use. Another option is to replace an include with the addresses it lists. This process is called flattening. You must keep the list up to date when the provider changes it. You can also send marketing email from a subdomain with its own SPF record.</p>
+  <p>These changes reduce the number of lookups your record requires. This prevents errors and ensures your email reaches the recipient. Review your current services to see what you can remove. Use a subdomain for marketing to separate those lookups from your main record. Flattening is a more manual process but it solves the limit issue.</p>
+  <h2>Questions</h2>
+  <h3>How do I count SPF lookups?</h3>
+  <p>Count each include, a, mx, ptr, exists, and redirect. You must also count the same mechanisms found inside each included record.</p>
+  <h3>Is ~all good enough?</h3>
+  <p>~all is common and acceptable while DMARC enforcement is in place. However, -all is stricter.</p>
+<aside class="article-cta">
+  <p class="eyebrow">Questionnaire Autopilot</p>
+  <p><strong>Questionnaire Autopilot flags an SPF record that needs more than 10 lookups in its weekly domain check.</strong> It runs on your own computer: $99 once, with a free 14-day trial.</p>
+  <a class="button button-primary" href="../index.html#buy">Try it free for 14 days <span aria-hidden="true">→</span></a>
+</aside>
+  <p class="article-meta">Last updated 04 November 2026. PrautoForge makes Questionnaire Autopilot. This guide is general information, not legal or compliance advice. Check the official source before acting. Free tool: <a href="../tools/email-security-check.html">email security check</a>.</p>
+</main>
+<footer class="site-footer"><div class="shell footer-grid"><div><a class="brand footer-brand" href="../index.html"><img src="../assets/icon.png" alt="" width="32" height="32"><span>PrautoForge</span></a><p>Questionnaire Autopilot<br>Security, compliance and questionnaires, on your own computer.</p></div><div><p class="footer-label">Explore</p><a href="../workflow.html">Workflow</a><a href="../pricing.html">Pricing &amp; requirements</a><a href="../user-guide.html">User guide</a><a href="../guides/index.html">Articles &amp; template</a></div><div><p class="footer-label">Help &amp; policies</p><a href="../support.html">Support</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms &amp; refunds</a><a href="mailto:contactprautof@gmail.com">contactprautof@gmail.com</a></div><div class="footer-base"><nav class="socials" aria-label="Social media"><a href="https://www.instagram.com/prautofautoq/" rel="me noopener" target="_blank" aria-label="PrautoForge on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1" fill="currentColor" stroke="none"/></svg></a></nav><p class="copyright">© 2026 PrautoForge.</p></div></div></footer>
+</body>
+</html>
